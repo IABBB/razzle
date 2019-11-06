@@ -4,13 +4,13 @@
   "description": "CLI tool to bootstrap Razzle applications with no configuration",
   "main": "index.js",
   "license": "MIT",
-  "author": "Jared Palmer <jared@palmer.net> (http://jaredpalmer.com)",
+  "author": "IABBB",
   "engines": {
     "node": ">=6"
   },
-  "repository": "jaredpalmer/razzle",
+  "repository": "IABBB/razzle",
   "bugs": {
-    "url": "https://github.com/jaredpalmer/razzle/issues"
+    "url": "https://github.com/IABBB/razzle/issues"
   },
   "bin": {
     "create-razzle-app": "./bin/create-razzle-app"

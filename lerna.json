@@ -10,14 +10,14 @@
   ],
   "useWorkspaces": true,
   "npmClient": "yarn",
-  "commands": {
+  "command": {
     "bootstrap": {
       "hoist": true,
       "nohoist": "express"
     }
   },
   "changelog": {
-    "repo": "jaredpalmer/razzle",
+    "repo": "IABBB/razzle",
     "labels": {
       "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",
