@@ -2,7 +2,7 @@
 - styled-components (kind of done, need to implement new styled-component plugin) - ish
 - material-ui - done
 - loadable
-- dynamic routing with renderRoutes util - ish
+- dynamic routing with renderRoutes util - done
 - redux
 - injectable reducers
 - renderToNodeStream

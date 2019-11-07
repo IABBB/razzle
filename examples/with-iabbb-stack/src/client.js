@@ -2,20 +2,7 @@ import App from './App';
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { loadableReady } from '@loadable/component';
-// import { BrowserRouter } from 'react-router';
 const BrowserRouter = require('react-router-dom').BrowserRouter;
-/* 
-hydrate(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root')
-);
-
-if (module.hot) {
-  module.hot.accept();
-}
-*/
 
 const routingProps = {
   router: BrowserRouter,

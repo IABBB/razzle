@@ -7,6 +7,7 @@ import Router from 'koa-router';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+// import { ChunkExtractor } from '@loadable/server';
 
 const StaticRouter = require('react-router-dom').StaticRouter;
 
@@ -22,15 +23,8 @@ router.get(
     // Create the server side style sheet
     const styledSheet = new ServerStyleSheet();
     const materialSheet = new ServerStyleSheets();
-    // When the app is rendered collect the styles that are used inside it
-
-    // styledSheet.collectStyles(materialSheet.collect(<App />));
     const context = {};
-    // const markup = renderToString(
-    //     <StaticRouter context={context} location={ctx.url}>
-    //       <App />
-    //     </StaticRouter>
-    // );
+
     const markup = renderToString(
       styledSheet.collectStyles(
         materialSheet.collect(
@@ -51,7 +45,6 @@ router.get(
     ctx.state.styles = {
       styledSheet: styledSheet.getStyleTags(),
       materialSheet: materialSheet.toString(),
-      // materialSheet: ''
     };
 
     ctx.state.markup = markup;
