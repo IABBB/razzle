@@ -6,7 +6,7 @@
     "eslint": "^4.6.1",
     "husky": "^0.14.3",
     "jest": "^23.6.0",
-    "lerna": "2.10.1",
+    "lerna": "^3.18.3",
     "lerna-changelog": "^0.7.0",
     "lint-staged": "^4.0.0",
     "prettier": "^1.4.4",
@@ -27,7 +27,6 @@
       "git add"
     ]
   },
-  "dependencies": {},
   "jest": {
     "testPathIgnorePatterns": [
       "<rootDir>/coverage/",
@@ -47,9 +46,8 @@
   "workspaces": [
     "packages/razzle",
     "packages/babel-preset-razzle",
-    "packages/create-razzle-app",
     "packages/razzle-dev-utils",
-    "packages/razzle-plugin-*",
     "examples/*"
-  ]
+  ],
+  "name": "razzle"
 }
