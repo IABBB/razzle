@@ -1,0 +1,30 @@
+# Initial POC
+- styled-components (kind of done, need to implement new styled-component plugin) - ish
+- material-ui - done
+- loadable
+- dynamic routing with renderRoutes util - ish
+- redux
+- injectable reducers
+- renderToNodeStream
+- api
+
+# Razzle Refactor
+- upgrade all packages
+- simplify razzle, webpack etc
+
+# Migrate Webpack Config
+- language plugin
+- svg icon plugin
+- remaining plugins
+- update POC to showcase plugins
+
+# Multi App Build
+- headerfooter app
+- polyfill app (research react-app-polyfill/ie11)
+- parallel builds using 'jest-worker' for dev/test/stage/prod
+
+# Deployment
+- lerna
+- docker
+
+

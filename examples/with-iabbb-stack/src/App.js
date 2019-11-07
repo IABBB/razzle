@@ -1,13 +1,28 @@
+import MuiThemeProvider from '@material-ui/styles/ThemeProvider';
+import PropTypes from 'prop-types';
 import React from 'react';
-import Route from 'react-router-dom/Route';
-import Switch from 'react-router-dom/Switch';
-import Home from './Home';
-import './App.css';
+import GlobalStyles from './styles/GlobalStyles';
+import theme from './styles/theme';
+import Routing from './utils/routing';
 
-const App = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-  </Switch>
-);
+const Controller = props => <Routing {...props} />;
 
-export default App;
+export default class App extends React.Component {
+  static displayName = 'App';
+
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+    store: PropTypes.object.isRequired,
+  };
+
+  render() {
+    const { children, store } = this.props;
+
+    return (
+      <MuiThemeProvider theme={theme}>
+        {children({ Controller })}
+        <GlobalStyles />
+      </MuiThemeProvider>
+    );
+  }
+}

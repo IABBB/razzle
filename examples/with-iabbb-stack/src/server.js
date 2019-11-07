@@ -1,11 +1,14 @@
 import App from './App';
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
 import Koa from 'koa';
 import serve from 'koa-static';
 import helmet from 'koa-helmet';
 import Router from 'koa-router';
 import { renderToString } from 'react-dom/server';
+import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheets } from '@material-ui/core/styles';
+
+const StaticRouter = require('react-router-dom').StaticRouter;
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
@@ -16,12 +19,41 @@ const router = new Router();
 router.get(
   '/*',
   (ctx, next) => {
+    // Create the server side style sheet
+    const styledSheet = new ServerStyleSheet();
+    const materialSheet = new ServerStyleSheets();
+    // When the app is rendered collect the styles that are used inside it
+
+    // styledSheet.collectStyles(materialSheet.collect(<App />));
     const context = {};
+    // const markup = renderToString(
+    //     <StaticRouter context={context} location={ctx.url}>
+    //       <App />
+    //     </StaticRouter>
+    // );
     const markup = renderToString(
-      <StaticRouter context={context} location={ctx.url}>
-        <App />
-      </StaticRouter>
+      styledSheet.collectStyles(
+        materialSheet.collect(
+          <App>
+            {({ Controller }) => (
+              <Controller
+                router={StaticRouter}
+                location={ctx.url}
+                context={context}
+              />
+            )}
+          </App>
+        )
+      )
     );
+
+    // Generate all the style tags so they can be rendered into the page
+    ctx.state.styles = {
+      styledSheet: styledSheet.getStyleTags(),
+      materialSheet: materialSheet.toString(),
+      // materialSheet: ''
+    };
+
     ctx.state.markup = markup;
     return context.url ? ctx.redirect(context.url) : next();
   },
@@ -33,20 +65,21 @@ router.get(
       <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta charset="utf-8" />
-          <title>Welcome to Razzle + Koa</title>
+          <title>Welcome to Razzle + IABBB</title>
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          ${
-            assets.client.css
-              ? `<link rel="stylesheet" href="${assets.client.css}">`
-              : ''
-          }
+          <div id="ssr-styles">
+            ${ctx.state.styles.styledSheet}
+            <style>
+              ${ctx.state.styles.materialSheet}
+            </style>
+          </div>
           ${
             process.env.NODE_ENV === 'production'
               ? `<script src="${assets.client.js}" defer></script>`
               : `<script src="${assets.client.js}" defer crossorigin></script>`
           }
       </head>
-      <body>
+      <body>          
           <div id="root">${ctx.state.markup}</div>
       </body>
     </html>`;
