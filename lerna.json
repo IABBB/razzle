@@ -1,7 +1,7 @@
 {
   "packages": [
     "packages/razzle",
-    "packages/babel-preset-razzle",
+    "packages/babel-preset-iabbb",
     "packages/razzle-dev-utils",
     "examples/*"
   ],

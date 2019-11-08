@@ -32,6 +32,8 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
+const getVersion = packageJson => require(packageJson).version;
+
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 const nodePaths = (process.env.NODE_PATH || '')
@@ -59,6 +61,7 @@ module.exports = {
   nodePaths: nodePaths,
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'),
+  ownVersion: getVersion(resolveOwn('package.json')),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
 };

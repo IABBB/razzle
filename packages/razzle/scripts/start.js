@@ -2,6 +2,7 @@
 'use strict';
 
 process.env.NODE_ENV = 'development';
+const chalk = require('chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const paths = require('../config/paths');
@@ -22,6 +23,7 @@ process.env.INSPECT =
   process.argv.find(arg => arg.match(/--inspect(=|$)/)) || '';
 
 function main() {
+  console.log(`✨  Razzle IABBB ${chalk.green(`v${paths.ownVersion}`)} ✨ \n`);
   // Optimistically, we make the console look exactly like the output of our
   // FriendlyErrorsPlugin during compilation, so the user has immediate feedback.
   // clearConsole();

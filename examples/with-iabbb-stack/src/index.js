@@ -1,5 +1,7 @@
 import http from 'http';
 
+const chalk = require('chalk');
+
 let app = require('./server').default;
 
 // Use `app#callback()` method here instead of directly
@@ -13,11 +15,11 @@ server.listen(process.env.PORT || 3000, error => {
     console.log(error);
   }
 
-  console.log('🚀 started');
+  console.log(chalk.yellow('☀️  STARTED ☀️ \n'));
 });
 
 if (module.hot) {
-  console.log('✅  Server-side HMR Enabled!');
+  console.log('✅  Server-side HMR Enabled!\n');
 
   module.hot.accept('./server', () => {
     console.log('🔁  HMR Reloading `./server`...');

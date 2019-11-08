@@ -45,7 +45,7 @@ module.exports = (
   webpackObject
 ) => {
   // First we check to see if the user has a custom .babelrc file, otherwise
-  // we just use babel-preset-razzle.
+  // we just use babel-preset-iabbb.
   const hasBabelRc = fs.existsSync(paths.appBabelRc);
   const mainBabelOptions = {
     babelrc: true,
@@ -54,7 +54,7 @@ module.exports = (
   };
 
   if (!hasBabelRc) {
-    mainBabelOptions.presets.push(require.resolve('../babel'));
+    mainBabelOptions.presets.push(require.resolve('../.babelrc.js'));
   }
 
   // Allow app to override babel options
