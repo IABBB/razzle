@@ -7,28 +7,12 @@ const TerserPlugin = require('terser-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const AssetsPlugin = require('assets-webpack-plugin');
 const StartServerPlugin = require('start-server-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const safePostCssParser = require('postcss-safe-parser');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const paths = require('./paths');
 const runPlugin = require('./runPlugin');
 const getClientEnv = require('./env').getClientEnv;
 const nodePath = require('./env').nodePath;
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const WebpackBar = require('webpackbar');
-
-const postCssOptions = {
-  ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-  plugins: () => [
-    require('postcss-flexbugs-fixes'),
-    require('postcss-preset-env')({
-      autoprefixer: {
-        flexbox: 'no-2009',
-      },
-      stage: 3,
-    }),
-  ],
-};
 
 // This is the Webpack configuration factory. It's the juice!
 module.exports = (
@@ -164,109 +148,6 @@ module.exports = (
             name: 'static/media/[name].[hash:8].[ext]',
             emitFile: IS_WEB,
           },
-        },
-
-        // "postcss" loader applies autoprefixer to our CSS.
-        // "css" loader resolves paths in CSS and adds assets as dependencies.
-        // "style" loader turns CSS into JS modules that inject <style> tags.
-        // In production, we use a plugin to extract that CSS to a file, but
-        // in development "style" loader enables hot editing of CSS.
-        //
-        // Note: this yields the exact same CSS config as create-react-app.
-        {
-          test: /\.css$/,
-          exclude: [paths.appBuild, /\.module\.css$/],
-          use: IS_NODE
-            ? // Style-loader does not work in Node.js without some crazy
-              // magic. Luckily we just need css-loader.
-              [
-                {
-                  loader: require.resolve('css-loader'),
-                  options: {
-                    importLoaders: 1,
-                  },
-                },
-              ]
-            : IS_DEV
-            ? [
-                require.resolve('style-loader'),
-                {
-                  loader: require.resolve('css-loader'),
-                  options: {
-                    importLoaders: 1,
-                  },
-                },
-                {
-                  loader: require.resolve('postcss-loader'),
-                  options: postCssOptions,
-                },
-              ]
-            : [
-                MiniCssExtractPlugin.loader,
-                {
-                  loader: require.resolve('css-loader'),
-                  options: {
-                    importLoaders: 1,
-                    modules: false,
-                    minimize: true,
-                  },
-                },
-                {
-                  loader: require.resolve('postcss-loader'),
-                  options: postCssOptions,
-                },
-              ],
-        },
-        // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
-        // using the extension .module.css
-        {
-          test: /\.module\.css$/,
-          exclude: [paths.appBuild],
-          use: IS_NODE
-            ? [
-                {
-                  // on the server we do not need to embed the css and just want the identifier mappings
-                  // https://github.com/webpack-contrib/css-loader#scope
-                  loader: require.resolve('css-loader/locals'),
-                  options: {
-                    modules: true,
-                    importLoaders: 1,
-                    localIdentName: '[path]__[name]___[local]',
-                  },
-                },
-              ]
-            : IS_DEV
-            ? [
-                require.resolve('style-loader'),
-                {
-                  loader: require.resolve('css-loader'),
-                  options: {
-                    modules: true,
-                    importLoaders: 1,
-                    localIdentName: '[path]__[name]___[local]',
-                  },
-                },
-                {
-                  loader: require.resolve('postcss-loader'),
-                  options: postCssOptions,
-                },
-              ]
-            : [
-                MiniCssExtractPlugin.loader,
-                {
-                  loader: require.resolve('css-loader'),
-                  options: {
-                    modules: true,
-                    importLoaders: 1,
-                    minimize: true,
-                    localIdentName: '[path]__[name]___[local]',
-                  },
-                },
-                {
-                  loader: require.resolve('postcss-loader'),
-                  options: postCssOptions,
-                },
-              ],
         },
       ],
     },
@@ -455,15 +336,6 @@ module.exports = (
         ...config.plugins,
         // Define production environment vars
         new webpack.DefinePlugin(dotenv.stringified),
-        // Extract our CSS into a files.
-        new MiniCssExtractPlugin({
-          filename: 'static/css/bundle.[contenthash:8].css',
-          chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-          // allChunks: true because we want all css to be included in the main
-          // css bundle when doing code splitting to avoid FOUC:
-          // https://github.com/facebook/create-react-app/issues/2415
-          allChunks: true,
-        }),
         new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
       ];
@@ -513,20 +385,6 @@ module.exports = (
             cache: true,
             // @todo add flag for sourcemaps
             sourceMap: true,
-          }),
-          new OptimizeCSSAssetsPlugin({
-            cssProcessorOptions: {
-              parser: safePostCssParser,
-              // @todo add flag for sourcemaps
-              map: {
-                // `inline: false` forces the sourcemap to be output into a
-                // separate file
-                inline: false,
-                // `annotation: true` appends the sourceMappingURL to the end of
-                // the css file, helping the browser find the sourcemap
-                annotation: true,
-              },
-            },
           }),
         ],
       };
