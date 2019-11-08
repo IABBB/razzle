@@ -1,0 +1,15 @@
+{
+  "name": "@iabbb/svg-icon-loader",
+  "version": "1.0.0",
+  "description": "svg icon webpack loader",
+  "main": "index.js",
+  "author": "IABBB",
+  "repository": "git@github.com:IABBB/razzle.git",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "xml2js": "0.4.22"
+  }
+}

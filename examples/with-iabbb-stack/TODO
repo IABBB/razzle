@@ -9,9 +9,11 @@
 - api
 
 # Razzle Refactor
-- upgrade all packages
-- simplify razzle, webpack etc
+- upgrade all packages - done
+- simplify razzle, webpack etc - done
 
+
+# BUILD
 # Migrate Webpack Config
 - language plugin
 - svg icon plugin
@@ -20,7 +22,7 @@
 
 # Multi App Build
 - headerfooter app
-- polyfill app (research react-app-polyfill/ie11)
+- polyfill app
 - parallel builds using 'jest-worker' for dev/test/stage/prod
 
 # Deployment

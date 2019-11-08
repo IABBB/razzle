@@ -47,10 +47,11 @@ function main() {
   // Create dev configs using our config factory, passing in razzle file as
   // options.
   let clientConfig = createConfig('web', 'dev', razzle, webpack);
-  let serverConfig = createConfig('node', 'dev', razzle, webpack);
 
   // Compile our assets with webpack
   const clientCompiler = compile(clientConfig);
+
+  let serverConfig = createConfig('node', 'dev', razzle, webpack);
   const serverCompiler = compile(serverConfig);
 
   // Instatiate a variable to track server watching

@@ -6,11 +6,13 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const AssetsPlugin = require('assets-webpack-plugin');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 const StartServerPlugin = require('start-server-webpack-plugin');
 const paths = require('./paths');
 const runPlugin = require('./runPlugin');
 const getClientEnv = require('./env').getClientEnv;
 const nodePath = require('./env').nodePath;
+const resolve = require('./webpack/resolve');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const WebpackBar = require('webpackbar');
 
@@ -77,37 +79,16 @@ module.exports = (
     devtool: IS_DEV ? 'cheap-module-source-map' : 'source-map',
     // We need to tell webpack how to resolve both Razzle's node_modules and
     // the users', so we use resolve and resolveLoader.
-    resolve: {
-      modules: ['node_modules', paths.appNodeModules].concat(
-        // It is guaranteed to exist because we tweak it in `env.js`
-        nodePath.split(path.delimiter).filter(Boolean)
-      ),
-      extensions: ['.mjs', '.jsx', '.js', '.json'],
-      alias: {
-        // This is required so symlinks work during development.
-        'webpack/hot/poll': require.resolve('webpack/hot/poll'),
-        // Support React Native Web
-        // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-        'react-native': 'react-native-web',
-      },
-    },
+    resolve,
     resolveLoader: {
       modules: [paths.appNodeModules, paths.ownNodeModules],
     },
     module: {
       strictExportPresence: true,
       rules: [
-        // Disable require.ensure as it's not a standard language feature.
-        // { parser: { requireEnsure: false } },
-        // Avoid "require is not defined" errors
-        {
-          test: /\.mjs$/,
-          include: /node_modules/,
-          type: 'javascript/auto',
-        },
         // Transform ES6 with Babel
         {
-          test: /\.(js|jsx|mjs)$/,
+          test: /\.m?js?$/,
           include: [paths.appSrc],
           use: [
             {
@@ -116,39 +97,40 @@ module.exports = (
             },
           ],
         },
-        {
-          exclude: [
-            /\.html$/,
-            /\.(js|jsx|mjs)$/,
-            /\.(ts|tsx)$/,
-            /\.(vue)$/,
-            /\.(less)$/,
-            /\.(re)$/,
-            /\.(s?css|sass)$/,
-            /\.json$/,
-            /\.bmp$/,
-            /\.gif$/,
-            /\.jpe?g$/,
-            /\.png$/,
-          ],
-          loader: require.resolve('file-loader'),
-          options: {
-            name: 'static/media/[name].[hash:8].[ext]',
-            emitFile: IS_WEB,
-          },
-        },
-        // "url" loader works like "file" loader except that it embeds assets
-        // smaller than specified limit in bytes as data URLs to avoid requests.
-        // A missing `test` is equivalent to a match.
-        {
-          test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-          loader: require.resolve('url-loader'),
-          options: {
-            limit: 10000,
-            name: 'static/media/[name].[hash:8].[ext]',
-            emitFile: IS_WEB,
-          },
-        },
+
+        // {
+        //   exclude: [
+        //     /\.html$/,
+        //     /\.(js|jsx|mjs)$/,
+        //     /\.(ts|tsx)$/,
+        //     /\.(vue)$/,
+        //     /\.(less)$/,
+        //     /\.(re)$/,
+        //     /\.(s?css|sass)$/,
+        //     /\.json$/,
+        //     /\.bmp$/,
+        //     /\.gif$/,
+        //     /\.jpe?g$/,
+        //     /\.png$/,
+        //   ],
+        //   loader: require.resolve('file-loader'),
+        //   options: {
+        //     name: 'static/media/[name].[hash:8].[ext]',
+        //     emitFile: IS_WEB,
+        //   },
+        // },
+        // // "url" loader works like "file" loader except that it embeds assets
+        // // smaller than specified limit in bytes as data URLs to avoid requests.
+        // // A missing `test` is equivalent to a match.
+        // {
+        //   test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        //   loader: require.resolve('url-loader'),
+        //   options: {
+        //     limit: 10000,
+        //     name: 'static/media/[name].[hash:8].[ext]',
+        //     emitFile: IS_WEB,
+        //   },
+        // },
       ],
     },
   };
@@ -231,7 +213,10 @@ module.exports = (
       // in the build directory.
       new AssetsPlugin({
         path: paths.appBuild,
-        filename: 'assets.json',
+        // filename: 'assets.json'
+        filename: `${name}.assets.json`,
+        prettyPrint: true,
+        entrypoints: true,
       }),
       // Maybe we should move to this???
       // new ManifestPlugin({
@@ -239,9 +224,32 @@ module.exports = (
       //   writeToFileEmit: true,
       //   filename: 'manifest.json',
       // }),
+      new LoadablePlugin({ filename: `${name}.loadable.json` }),
     ];
 
     if (IS_DEV) {
+      config.module.rules.push(
+        // Rules for images
+        {
+          test: /\.(bmp|gif|jpe?g|png|svg)$/,
+          oneOf: [
+            {
+              issuer: /\.m?js?$/,
+              test: /\.svg/,
+              resourceQuery: /icon/,
+              loader: require.resolve('@iabbb/svg-icon-loader'),
+            },
+            {
+              loader: require.resolve('file-loader'),
+              options: {
+                name: IS_DEV ? '[path][name].[ext]?[hash:8]' : '[hash:8].[ext]',
+                emitFile: IS_WEB,
+              },
+            },
+          ],
+        }
+      );
+
       // Setup Webpack Dev Server on port 3001 and
       // specify our client entry point /client/index.js
       config.entry = {

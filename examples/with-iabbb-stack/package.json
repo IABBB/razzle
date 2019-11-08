@@ -32,7 +32,8 @@
     "styled-components": "4.4.1"
   },
   "devDependencies": {
-    "chalk": "2.4.2",
-    "razzle": "3.0.1"
+    "@iabbb/razzle": "3.0.1",
+    "chalk": "2.4.2"
+    
   }
 }

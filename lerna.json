@@ -3,6 +3,8 @@
     "packages/razzle",
     "packages/babel-preset-iabbb",
     "packages/razzle-dev-utils",
+    "packages/i18n-loader",
+    "packages/svg-icon-loader",
     "examples/*"
   ],
   "useWorkspaces": true,

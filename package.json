@@ -3,16 +3,16 @@
   "bugs": "https://github.com/IABBB/razzle/issues",
   "homepage": "https://github.com/IABBB/razzle#readme",
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "husky": "^0.14.3",
-    "jest": "^24.9.0",
+    "eslint": "6.6.0",
+    "husky": "0.14.3",
+    "jest": "24.9.0",
     "lerna": "^3.18.4",
-    "lerna-changelog": "^0.8.2",
-    "lint-staged": "^9.4.2",
+    "lerna-changelog": "0.8.2",
+    "lint-staged": "9.4.2",
     "prettier": "^1.18.2",
     "ps-tree": "1.2.0",
     "semver": "6.3.0",
-    "shelljs": "^0.8.2"
+    "shelljs": "0.8.3"
   },
   "scripts": {
     "e2e": "jest --config ./test/jest.config.json --verbose --no-cache ",
@@ -47,7 +47,8 @@
     "packages/razzle",
     "packages/babel-preset-iabbb",
     "packages/razzle-dev-utils",
+    "packages/i18n-loader",
+    "packages/svg-icon-loader",
     "examples/*"
-  ],
-  "name": "razzle"
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "babel-preset-iabbb",
+  "name": "@iabbb/babel-preset-iabbb",
   "version": "3.0.1",
   "description": "Babel presets for IABBB",
   "main": "index.js",
