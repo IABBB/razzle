@@ -47,13 +47,13 @@ module.exports = {
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
   appBuildPublic: resolveApp('build/public'),
-  appManifest: resolveApp('build/assets.json'),
+  // appManifest: resolveApp('build/assets.json'), // needs to support dynamic, multi-app
   appPublic: resolveApp('public'),
   appNodeModules: resolveApp('node_modules'),
   appSrc: resolveApp('src'),
   appPackageJson: resolveApp('package.json'),
   appServerIndexJs: resolveApp('src'),
-  appClientIndexJs: resolveApp('src/client'),
+  // appClientIndexJs: resolveApp('src/client'), needs to be dynamic since supporting multi apps
   tsTestsSetup: resolveApp('src/setupTests.ts'),
   jsTestsSetup: resolveApp('src/setupTests.js'),
   appBabelRc: resolveApp('.babelrc'),

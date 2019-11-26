@@ -1,4 +1,7 @@
-import App from './App';
+const path = require('path');
+const fs = require('fs-extra');
+
+import App from './apps/Website/App';
 import React from 'react';
 import Koa from 'koa';
 import serve from 'koa-static';
@@ -10,8 +13,7 @@ import { ServerStyleSheets } from '@material-ui/core/styles';
 // import { ChunkExtractor } from '@loadable/server';
 
 const StaticRouter = require('react-router-dom').StaticRouter;
-
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+const appName = 'site_en';
 
 // Initialize `koa-router` and setup a route listening on `GET /*`
 // Logic has been splitted into two chained middleware functions
@@ -20,6 +22,9 @@ const router = new Router();
 router.get(
   '/*',
   (ctx, next) => {
+    const assets = fs.readJsonSync(
+      path.join(process.env.BUILD_PATH, `${appName}.assets.json`)
+    );
     // Create the server side style sheet
     const styledSheet = new ServerStyleSheet();
     const materialSheet = new ServerStyleSheets();
@@ -48,6 +53,7 @@ router.get(
     };
 
     ctx.state.markup = markup;
+    ctx.state.assets = assets;
     return context.url ? ctx.redirect(context.url) : next();
   },
   ctx => {
@@ -68,8 +74,8 @@ router.get(
           </div>
           ${
             process.env.NODE_ENV === 'production'
-              ? `<script src="${assets.client.js}" defer></script>`
-              : `<script src="${assets.client.js}" defer crossorigin></script>`
+              ? `<script src="${ctx.state.assets.site_en.js}" defer></script>`
+              : `<script src="${ctx.state.assets.site_en.js}" defer crossorigin></script>`
           }
       </head>
       <body>          

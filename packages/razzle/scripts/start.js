@@ -1,17 +1,24 @@
 #! /usr/bin/env node
-'use strict';
 
 process.env.NODE_ENV = 'development';
+const Worker = require('jest-worker').default;
+const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
+const merge = require('deepmerge');
 const paths = require('../config/paths');
 const createConfig = require('../config/createConfig');
-const devServer = require('webpack-dev-server');
-const printErrors = require('razzle-dev-utils/printErrors');
+const DevServer = require('webpack-dev-server');
+const printErrors = require('@iabbb/razzle-dev-utils/printErrors');
+const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
+const getClientEnv = require('../config/env').getClientEnv;
 const clearConsole = require('react-dev-utils/clearConsole');
-const logger = require('razzle-dev-utils/logger');
-const setPorts = require('razzle-dev-utils/setPorts');
+const logger = require('@iabbb/razzle-dev-utils/logger');
+const setPorts = require('@iabbb/razzle-dev-utils/setPorts');
+const razzleConfig = require('../config/razzleConfig');
+const compiler = require('../config/compiler');
 
 process.noDeprecation = true; // turns off that loadQuery clutter.
 
@@ -22,44 +29,119 @@ process.env.INSPECT_BRK =
 process.env.INSPECT =
   process.argv.find(arg => arg.match(/--inspect(=|$)/)) || '';
 
-function main() {
+const applyWebpackBarPlugin = (compiler, { name, color } = {}) =>
+  new WebpackBar({
+    color: color || '#f56be2',
+    name: name || compiler.name || 'client',
+  }).apply(compiler);
+
+const createDevServerOptions = dotenv => {
+  // Configure webpack-dev-server to serve our client-side bundle from
+  // http://${dotenv.raw.HOST}:3001
+  return {
+    // open: true,
+    stats: {
+      colors: true,
+    },
+    disableHostCheck: true,
+    clientLogLevel: 'none',
+    // Enable gzip compression of generated files.
+    compress: true,
+    // watchContentBase: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    historyApiFallback: {
+      // Paths with dots should still use the history fallback.
+      // See https://github.com/facebookincubator/create-react-app/issues/387.
+      disableDotRule: true,
+    },
+    host: dotenv.raw.HOST,
+    hot: true,
+    noInfo: true,
+    overlay: false,
+    port: dotenv.raw.DEV_SERVER_PORT,
+    quiet: true,
+    // By default files from `contentBase` will not trigger a page reload.
+    // Reportedly, this avoids CPU overload on some systems.
+    // https://github.com/facebookincubator/create-react-app/issues/293
+    watchOptions: {
+      ignored: /node_modules/,
+    },
+    before(app) {
+      // This lets us open files from the runtime error overlay.
+      app.use(errorOverlayMiddleware());
+    },
+    contentBase: dotenv.raw.RAZZLE_PUBLIC_DIR,
+  };
+};
+
+async function main() {
   console.log(`✨  Razzle IABBB ${chalk.green(`v${paths.ownVersion}`)} ✨ \n`);
   // Optimistically, we make the console look exactly like the output of our
   // FriendlyErrorsPlugin during compilation, so the user has immediate feedback.
-  // clearConsole();
+  clearConsole();
   logger.start('Compiling...');
-  let razzle = {};
+  // fs.removeSync(paths.appManifest);
 
-  // Check for razzle.config.js file
-  if (fs.existsSync(paths.appRazzleConfig)) {
-    try {
-      razzle = require(paths.appRazzleConfig);
-    } catch (e) {
-      clearConsole();
-      logger.error('Invalid razzle.config.js file.', e);
-      process.exit(1);
-    }
-  }
+  // Get client env variables
+  const webDotEnv = getClientEnv('web', {
+    clearConsole: true,
+    host: 'localhost',
+    port: 3000,
+  });
+
+  // Create webpack configs for configs listed under 'use' and 'optional' fields
+  const clientConfigs = razzleConfig.run(
+    razzleConfig.get(['scripts', 'start', 'use']),
+    webDotEnv
+  );
+  const optionalConfigs = razzleConfig.run(
+    razzleConfig
+      .get(['scripts', 'start', 'optional'])
+      .filter(x => process.argv.includes(`--${x}`)),
+    webDotEnv
+  );
 
   // Delete assets.json to always have a manifest up to date
-  fs.removeSync(paths.appManifest);
+  const assetsJsonPaths = clientConfigs
+    .concat(optionalConfigs)
+    .map(cfg => path.join(paths.appBuild, `${cfg.name}.assets.json`));
+  await Promise.all(assetsJsonPaths.map(p => fs.remove(p)));
 
-  // Create dev configs using our config factory, passing in razzle file as
-  // options.
-  let clientConfig = createConfig('web', 'dev', razzle, webpack);
+  // Instantiate the webpack compiler with the config
+  const clientMultiCompiler = compiler.create(clientConfigs);
+  clientMultiCompiler.compilers.forEach(compiler =>
+    applyWebpackBarPlugin(compiler, { color: '#f56be2' })
+  );
 
-  // Compile our assets with webpack
-  const clientCompiler = compile(clientConfig);
+  if (optionalConfigs.length > 0) {
+    const _multiCompiler = compiler.create(optionalConfigs);
+    _multiCompiler.compilers.forEach(compiler =>
+      applyWebpackBarPlugin(compiler, { color: '#ffff00' })
+    );
+    _multiCompiler.run(err => {
+      if (err) {
+        throw Error(err);
+      }
+    });
+  }
 
-  let serverConfig = createConfig('node', 'dev', razzle, webpack);
-  const serverCompiler = compile(serverConfig);
+  const serverConfig = createConfig(
+    'node',
+    getClientEnv('node', { clearConsole: true, host: 'localhost', port: 3000 }),
+    {}
+  );
+  const serverCompiler = compiler.create(serverConfig);
+  applyWebpackBarPlugin(serverCompiler, { name: 'server', color: '#c065f4' });
+
+  // fs.writeJsonSync(require('path').resolve(__dirname, `all-webpack-configs-generated__${Date.now()}.json`), clientConfigs.concat(serverConfig));
 
   // Instatiate a variable to track server watching
   let watching;
 
   // Start our server webpack instance in watch mode after assets compile
-  clientCompiler.plugin('done', () => {
-    // If we've already started the server watcher, bail early.
+  clientMultiCompiler.hooks.done.tap('Clients Assets Compiled', () => {
     if (watching) {
       return;
     }
@@ -76,7 +158,11 @@ function main() {
 
   // Create a new instance of Webpack-dev-server for our client assets.
   // This will actually run on a different port than the users app.
-  const clientDevServer = new devServer(clientCompiler, clientConfig.devServer);
+  // Make sure to pass in dev-server options here, as the second argument otherwise it will be ignored
+  const clientDevServer = new DevServer(
+    clientMultiCompiler,
+    createDevServerOptions(webDotEnv)
+  );
 
   // Start Webpack-dev-server
   clientDevServer.listen(
@@ -90,16 +176,6 @@ function main() {
 }
 
 // Webpack compile in a try-catch
-function compile(config) {
-  let compiler;
-  try {
-    compiler = webpack(config);
-  } catch (e) {
-    printErrors('Failed to compile.', [e]);
-    process.exit(1);
-  }
-  return compiler;
-}
 
 setPorts()
   .then(main)

@@ -8,7 +8,7 @@ const chalk = require('chalk');
  * @param {string} summary Summary of error
  * @param {Array<Error>} errors Array of Errors
  */
-function printErrors(summary, errors) {
+function printErrors(summary, errors = []) {
   console.log(chalk.red(summary));
   console.log();
   errors.forEach(err => {

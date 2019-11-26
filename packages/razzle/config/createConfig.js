@@ -1,6 +1,3 @@
-'use strict';
-
-const fs = require('fs-extra');
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -9,66 +6,40 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 const StartServerPlugin = require('start-server-webpack-plugin');
 const paths = require('./paths');
-const runPlugin = require('./runPlugin');
-const getClientEnv = require('./env').getClientEnv;
-const nodePath = require('./env').nodePath;
 const resolve = require('./webpack/resolve');
-const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
-const WebpackBar = require('webpackbar');
 
 // This is the Webpack configuration factory. It's the juice!
 module.exports = (
   target = 'web',
-  env = 'dev',
+  dotenv,
+  // webpack config - control what we can use for now
   {
-    clearConsole = true,
-    host = 'localhost',
-    port = 3000,
-    modify,
-    plugins,
-    modifyBabelOptions,
+    name,
+    entry: appSrcIndexJsPath, // only support single entry in webpack config. renamed for clarity
+    // module
   },
-  webpackObject
+  serverOptions = {
+    assetsJsonPaths: [],
+  }
 ) => {
   // First we check to see if the user has a custom .babelrc file, otherwise
   // we just use babel-preset-iabbb.
-  const hasBabelRc = fs.existsSync(paths.appBabelRc);
-  const mainBabelOptions = {
+  // const hasBabelRc = fs.existsSync(paths.appBabelRc);
+  const babelOptions = {
     babelrc: true,
     cacheDirectory: true,
-    presets: [],
+    presets: [require.resolve('../.babelrc.js')],
   };
-
-  if (!hasBabelRc) {
-    mainBabelOptions.presets.push(require.resolve('../.babelrc.js'));
-  }
-
-  // Allow app to override babel options
-  const babelOptions = modifyBabelOptions
-    ? modifyBabelOptions(mainBabelOptions)
-    : mainBabelOptions;
-
-  if (hasBabelRc && babelOptions.babelrc) {
-    console.log('Using .babelrc defined in your app root');
-  }
 
   // Define some useful shorthands.
   const IS_NODE = target === 'node';
   const IS_WEB = target === 'web';
-  const IS_PROD = env === 'prod';
-  const IS_DEV = env === 'dev';
-  process.env.NODE_ENV = IS_PROD ? 'production' : 'development';
-
-  const dotenv = getClientEnv(target, { clearConsole, host, port });
-
-  const devServerPort = parseInt(dotenv.raw.PORT, 10) + 1;
-  // VMs, Docker containers might not be available at localhost:3001. CLIENT_PUBLIC_PATH can override.
-  const clientPublicPath =
-    dotenv.raw.CLIENT_PUBLIC_PATH ||
-    (IS_DEV ? `http://${dotenv.raw.HOST}:${devServerPort}/` : '/');
+  const IS_DEV = dotenv.raw.NODE_ENV === 'development';
 
   // This is our base webpack config.
-  let config = {
+  const config = {
+    stats: false,
+    name,
     // Set webpack mode:
     mode: IS_DEV ? 'development' : 'production',
     // Set webpack context to the current command's directory
@@ -97,40 +68,6 @@ module.exports = (
             },
           ],
         },
-
-        // {
-        //   exclude: [
-        //     /\.html$/,
-        //     /\.(js|jsx|mjs)$/,
-        //     /\.(ts|tsx)$/,
-        //     /\.(vue)$/,
-        //     /\.(less)$/,
-        //     /\.(re)$/,
-        //     /\.(s?css|sass)$/,
-        //     /\.json$/,
-        //     /\.bmp$/,
-        //     /\.gif$/,
-        //     /\.jpe?g$/,
-        //     /\.png$/,
-        //   ],
-        //   loader: require.resolve('file-loader'),
-        //   options: {
-        //     name: 'static/media/[name].[hash:8].[ext]',
-        //     emitFile: IS_WEB,
-        //   },
-        // },
-        // // "url" loader works like "file" loader except that it embeds assets
-        // // smaller than specified limit in bytes as data URLs to avoid requests.
-        // // A missing `test` is equivalent to a match.
-        // {
-        //   test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        //   loader: require.resolve('url-loader'),
-        //   options: {
-        //     limit: 10000,
-        //     name: 'static/media/[name].[hash:8].[ext]',
-        //     emitFile: IS_WEB,
-        //   },
-        // },
       ],
     },
   };
@@ -159,7 +96,7 @@ module.exports = (
     // Specify webpack Node.js output path and filename
     config.output = {
       path: paths.appBuild,
-      publicPath: clientPublicPath,
+      publicPath: dotenv.raw.CLIENT_PUBLIC_PATH,
       filename: 'server.js',
       libraryTarget: 'commonjs2',
     };
@@ -181,7 +118,7 @@ module.exports = (
       config.entry.unshift('webpack/hot/poll?300');
 
       // Pretty format server errors
-      config.entry.unshift('razzle-dev-utils/prettyNodeErrors');
+      config.entry.unshift('@iabbb/razzle-dev-utils/prettyNodeErrors');
 
       const nodeArgs = ['-r', 'source-map-support/register'];
 
@@ -201,13 +138,17 @@ module.exports = (
           name: 'server.js',
           nodeArgs,
         }),
-        // Ignore assets.json to avoid infinite recompile bug
-        new webpack.WatchIgnorePlugin([paths.appManifest]),
+        // Ignore *.assets.json to avoid infinite recompile bug
+        new webpack.WatchIgnorePlugin([/(assets.json)/g]),
+        // new webpack.WatchIgnorePlugin(serverOptions.assetsJsonPaths)
+        // new webpack.WatchIgnorePlugin(['C:/_forks/razzle/examples/with-iabbb-stack/build/site_en.assets.json'])
       ];
     }
   }
 
   if (IS_WEB) {
+    // Name of the configuration. Used when loading multiple configurations.
+    // (config.name = name),
     config.plugins = [
       // Output our JS and CSS files in a manifest file called assets.json
       // in the build directory.
@@ -218,12 +159,6 @@ module.exports = (
         prettyPrint: true,
         entrypoints: true,
       }),
-      // Maybe we should move to this???
-      // new ManifestPlugin({
-      //   path: paths.appBuild,
-      //   writeToFileEmit: true,
-      //   filename: 'manifest.json',
-      // }),
       new LoadablePlugin({ filename: `${name}.loadable.json` }),
     ];
 
@@ -253,56 +188,29 @@ module.exports = (
       // Setup Webpack Dev Server on port 3001 and
       // specify our client entry point /client/index.js
       config.entry = {
-        client: [
-          require.resolve('razzle-dev-utils/webpackHotDevClient'),
-          paths.appClientIndexJs,
+        [name]: [
+          require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'),
+          appSrcIndexJsPath,
         ],
+        // client: [
+        //   require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'),
+        //   paths.appClientIndexJs,
+        // ],
       };
 
       // Configure our client bundles output. Not the public path is to 3001.
       config.output = {
         path: paths.appBuildPublic,
-        publicPath: clientPublicPath,
+        publicPath: dotenv.raw.CLIENT_PUBLIC_PATH,
+        // the number after the hash, ex [hash:8] or [chunkhash:8], indicates the length of the hash.  default is 20.
+        filename: '[name].js',
         pathinfo: true,
+        chunkFilename: '[name].js',
         libraryTarget: 'var',
-        filename: 'static/js/bundle.js',
-        chunkFilename: 'static/js/[name].chunk.js',
         devtoolModuleFilenameTemplate: info =>
           path.resolve(info.resourcePath).replace(/\\/g, '/'),
       };
-      // Configure webpack-dev-server to serve our client-side bundle from
-      // http://${dotenv.raw.HOST}:3001
-      config.devServer = {
-        disableHostCheck: true,
-        clientLogLevel: 'none',
-        // Enable gzip compression of generated files.
-        compress: true,
-        // watchContentBase: true,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-        historyApiFallback: {
-          // Paths with dots should still use the history fallback.
-          // See https://github.com/facebookincubator/create-react-app/issues/387.
-          disableDotRule: true,
-        },
-        host: dotenv.raw.HOST,
-        hot: true,
-        noInfo: true,
-        overlay: false,
-        port: devServerPort,
-        quiet: true,
-        // By default files from `contentBase` will not trigger a page reload.
-        // Reportedly, this avoids CPU overload on some systems.
-        // https://github.com/facebookincubator/create-react-app/issues/293
-        watchOptions: {
-          ignored: /node_modules/,
-        },
-        before(app) {
-          // This lets us open files from the runtime error overlay.
-          app.use(errorOverlayMiddleware());
-        },
-      };
+
       // Add client-only development plugins
       config.plugins = [
         ...config.plugins,
@@ -326,7 +234,8 @@ module.exports = (
     } else {
       // Specify production entry point (/client/index.js)
       config.entry = {
-        client: paths.appClientIndexJs,
+        // client: paths.appClientIndexJs,
+        [name]: appSrcIndexJsPath,
       };
 
       // Specify the client output directory and paths. Notice that we have
@@ -334,7 +243,7 @@ module.exports = (
       // we will only be using one port in production.
       config.output = {
         path: paths.appBuildPublic,
-        publicPath: dotenv.raw.PUBLIC_PATH || '/',
+        publicPath: dotenv.raw.PUBLIC_PATH,
         filename: 'static/js/bundle.[chunkhash:8].js',
         chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
         libraryTarget: 'var',
@@ -397,34 +306,6 @@ module.exports = (
         ],
       };
     }
-  }
-
-  if (IS_DEV) {
-    config.plugins = [
-      ...config.plugins,
-      new WebpackBar({
-        color: target === 'web' ? '#f56be2' : '#c065f4',
-        name: target === 'web' ? 'client' : 'server',
-      }),
-    ];
-  }
-
-  // Apply razzle plugins, if they are present in razzle.config.js
-  if (Array.isArray(plugins)) {
-    plugins.forEach(plugin => {
-      config = runPlugin(
-        plugin,
-        config,
-        { target, dev: IS_DEV },
-        webpackObject
-      );
-    });
-  }
-
-  // Check if razzle.config has a modify function. If it does, call it on the
-  // configs we created.
-  if (modify) {
-    config = modify(config, { target, dev: IS_DEV }, webpackObject);
   }
 
   return config;

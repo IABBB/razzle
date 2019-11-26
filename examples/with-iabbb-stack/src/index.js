@@ -15,11 +15,11 @@ server.listen(process.env.PORT || 3000, error => {
     console.log(error);
   }
 
-  console.log(chalk.yellow('☀️  STARTED ☀️ \n'));
+  console.log(`\n\n${chalk.yellow('☀️  STARTED ☀️ \n')}`);
 });
 
 if (module.hot) {
-  console.log('✅  Server-side HMR Enabled!\n');
+  // console.log('✅  Server-side HMR Enabled!\n');
 
   module.hot.accept('./server', () => {
     console.log('🔁  HMR Reloading `./server`...');

@@ -2,9 +2,10 @@
 
 const i18n = require('../i18n.config');
 
-const config = i18n.locales.map(locale => ({
+const config = locale => ({
+  target: 'web',
   name: `site_${locale}`,
-  entry: [require.resolve('../src/client.js')],
+  entry: require.resolve('../src/apps/Website/index.js'),
   module: {
     rules: [
       {
@@ -17,5 +18,5 @@ const config = i18n.locales.map(locale => ({
       },
     ],
   },
-}));
+});
 module.exports = config;

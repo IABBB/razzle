@@ -14,16 +14,15 @@
 
 
 # BUILD
-# Migrate Webpack Config
-- language plugin
-- svg icon plugin
-- remaining plugins
-- update POC to showcase plugins
+# Migrate Webpack Config - DONE
+- language plugin - done
+- svg icon plugin - done
+- remaining plugins - done
 
 # Multi App Build
 - headerfooter app
-- polyfill app
-- parallel builds using 'jest-worker' for dev/test/stage/prod
+- polyfill app - done
+- parallel builds using 'jest-worker' for dev/test/stage/prod - ish
 
 # Deployment
 - lerna

@@ -49,10 +49,21 @@ const nodePath = (process.env.NODE_PATH || '')
   .map(folder => path.resolve(appDirectory, folder))
   .join(path.delimiter);
 
+const getHOST = ({ host }) => process.env.HOST || host || 'localhost';
+const getPORT = ({ port }) => process.env.PORT || port || 3000;
+const getDEV_SERVER_PORT = options =>
+  process.env.DEV_SERVER_PORT ||
+  options.devServerPort ||
+  parseInt(getPORT(options), 10) + 1;
+
 // Grab NODE_ENV and RAZZLE_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
 const RAZZLE = /^RAZZLE_/i;
-
+/**
+ * Not just used by the client
+ * @param {string} target 'web' or 'node'
+ * @param {Object} options options to determine the default process variables
+ */
 function getClientEnvironment(target, options) {
   const raw = Object.keys(process.env)
     .filter(key => RAZZLE.test(key))
@@ -65,16 +76,24 @@ function getClientEnvironment(target, options) {
         // Useful for determining whether we’re running in production mode.
         // Most importantly, it switches React into the correct mode.
         NODE_ENV: process.env.NODE_ENV || 'development',
-        PORT: process.env.PORT || options.port || 3000,
+        PORT: getPORT(options),
         VERBOSE: !!process.env.VERBOSE,
-        HOST: process.env.HOST || options.host || 'localhost',
-        RAZZLE_ASSETS_MANIFEST: paths.appManifest,
+        HOST: getHOST(options),
+        // RAZZLE_ASSETS_MANIFEST: paths.appManifest, // needs to be set dynamically
+
+        BUILD_PATH: paths.appBuild,
         BUILD_TARGET: target === 'web' ? 'client' : 'server',
         // only for production builds. Useful if you need to serve from a CDN
         PUBLIC_PATH: process.env.PUBLIC_PATH || '/',
+        DEV_SERVER_PORT: getDEV_SERVER_PORT(options),
         // CLIENT_PUBLIC_PATH is a PUBLIC_PATH for NODE_ENV === 'development' && BUILD_TARGET === 'client'
         // It's useful if you're running razzle in a non-localhost container. Ends in a /
-        CLIENT_PUBLIC_PATH: process.env.CLIENT_PUBLIC_PATH,
+        // During dev this is used by the webpack dev server
+        CLIENT_PUBLIC_PATH:
+          process.env.CLIENT_PUBLIC_PATH ||
+          (process.env.NODE_ENV !== 'production'
+            ? `http://${getHOST(options)}:${getDEV_SERVER_PORT(options)}/`
+            : '/'),
         // The public dir changes between dev and prod, so we use an environment
         // variable available to users.
         RAZZLE_PUBLIC_DIR:

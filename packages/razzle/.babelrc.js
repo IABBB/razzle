@@ -1,1 +1,1 @@
-module.exports = require('babel-preset-iabbb');
+module.exports = require('@iabbb/babel-preset-iabbb');
