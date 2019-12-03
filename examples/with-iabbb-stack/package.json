@@ -39,7 +39,9 @@
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
+    "@iabbb/eslint-config-iabbb": "3.0.1",
+    "@iabbb/prettier-config-iabbb": "3.0.1",
     "@iabbb/razzle": "3.0.1",
-    "chalk": "2.4.2"
+    "chalk": "2.4.2"    
   }
 }

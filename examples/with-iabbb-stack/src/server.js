@@ -22,9 +22,10 @@ const router = new Router();
 router.get(
   '/*',
   (ctx, next) => {
-    const assets = fs.readJsonSync(
-      path.join(process.env.BUILD_PATH, `${appName}.assets.json`)
-    );
+    // const extractor = new ChunkExtractor({ statsFile: path.resolve(process.env.BUILD_PATH, `${appName}.loadable.json`) });
+
+    const assets = fs.readJsonSync(path.join(process.env.BUILD_PATH, `${appName}.assets.json`));
+
     // Create the server side style sheet
     const styledSheet = new ServerStyleSheet();
     const materialSheet = new ServerStyleSheets();
@@ -34,13 +35,7 @@ router.get(
       styledSheet.collectStyles(
         materialSheet.collect(
           <App>
-            {({ Controller }) => (
-              <Controller
-                router={StaticRouter}
-                location={ctx.url}
-                context={context}
-              />
-            )}
+            {({ Controller }) => <Controller router={StaticRouter} location={ctx.url} context={context} />}
           </App>
         )
       )
@@ -53,10 +48,10 @@ router.get(
     };
 
     ctx.state.markup = markup;
-    ctx.state.assets = assets;
+    ctx.state.scripts = extractor.getScriptTags();
     return context.url ? ctx.redirect(context.url) : next();
   },
-  ctx => {
+  (ctx) => {
     ctx.status = 200;
     ctx.body = `
     <!doctype html>
@@ -73,6 +68,7 @@ router.get(
             </style>
           </div>
           ${
+            // ctx.state.scripts
             process.env.NODE_ENV === 'production'
               ? `<script src="${ctx.state.assets.site_en.js}" defer></script>`
               : `<script src="${ctx.state.assets.site_en.js}" defer crossorigin></script>`

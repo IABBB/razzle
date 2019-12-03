@@ -49,6 +49,8 @@
     "packages/razzle-dev-utils",
     "packages/i18n-loader",
     "packages/svg-icon-loader",
+    "packages/eslint-config-iabbb",
+    "packages/prettier-config-iabbb",
     "examples/*"
   ]
 }

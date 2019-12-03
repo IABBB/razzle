@@ -1,0 +1,17 @@
+{
+  "name": "@iabbb/prettier-config-iabbb",
+  "version": "3.0.1",
+  "description": "Prettier config for IABBB",
+  "main": "index.js",
+  "author": "IABBB",
+  "repository": "git@github.com:IABBB/razzle.git",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "prettier",
+    "prettier-config",
+    "prettier-config-iabbb"
+  ]
+}

@@ -159,7 +159,10 @@ module.exports = (
         prettyPrint: true,
         entrypoints: true,
       }),
-      new LoadablePlugin({ filename: `${name}.loadable.json` }),
+      new LoadablePlugin({
+        filename: `${name}.loadable.json`,
+        writeToDisk: true,
+      }),
     ];
 
     if (IS_DEV) {

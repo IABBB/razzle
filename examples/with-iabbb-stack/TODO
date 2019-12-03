@@ -1,7 +1,7 @@
 # Initial POC
 - styled-components (kind of done, need to implement new styled-component plugin) - done
 - material-ui - done
-- loadable
+- loadable-components
 - dynamic routing with renderRoutes util - done
 - redux
 - injectable reducers
