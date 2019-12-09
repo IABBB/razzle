@@ -1,15 +1,14 @@
-'use strict';
-
 const i18n = require('../i18n.config');
 
-const config = locale => ({
-  target: 'web',
+const config = (locale) => ({
   name: `site_${locale}`,
-  entry: require.resolve('../src/apps/Website/index.js'),
+  entry: require.resolve('../src/apps/Website/client.js'),
   module: {
     rules: [
       {
-        resourceQuery: /i18n/,
+        type: 'javascript/auto', // needed to ignore webpack's builtin json-loader
+        exclude: /node_modules/,
+        test: /i18n\.json$/,
         loader: require.resolve('@iabbb/i18n-loader'),
         options: {
           defaultLocale: i18n.defaultLocale,

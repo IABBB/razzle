@@ -1,11 +1,10 @@
-'use strict';
 const i18n = require('./i18n.config');
 
 module.exports = {
   configs: {
     website: ({ createWebpackConfig }) => {
       const createConfig = require('./webpack/website.config.js');
-      return i18n.locales.map(locale => {
+      return i18n.locales.map((locale) => {
         const appConfig = createConfig(locale);
         return createWebpackConfig(appConfig);
       });
@@ -18,7 +17,7 @@ module.exports = {
       }),
     headerfooter: ({ createWebpackConfig }) => {
       const createConfig = require('./webpack/headerfooter.config.js');
-      return i18n.locales.map(locale => {
+      return i18n.locales.map((locale) => {
         const appConfig = createConfig(locale);
         return createWebpackConfig(appConfig);
       });
@@ -26,11 +25,14 @@ module.exports = {
   },
   scripts: {
     start: {
-      use: ['website'],
+      ssr: ['website'], // create an ssr bundle
+      build: ['website', 'headerfooter'],
       optional: ['polyfill'],
+      devClient: ['website'],
     },
     build: {
-      use: ['website', 'headerfooter', 'polyfill'],
+      ssr: ['website'],
+      build: ['website', 'headerfooter', 'polyfill'],
     },
   },
 };

@@ -9,9 +9,7 @@ delete require.cache[require.resolve('./paths')];
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
-  throw new Error(
-    'The NODE_ENV environment variable is required but was not specified.'
-  );
+  throw new Error('The NODE_ENV environment variable is required but was not specified.');
 }
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
@@ -25,7 +23,7 @@ var dotenvFiles = [
 // if this file is missing. dotenv will never modify any environment variables
 // that have already been set.
 // https://github.com/motdotla/dotenv
-dotenvFiles.forEach(dotenvFile => {
+dotenvFiles.forEach((dotenvFile) => {
   if (fs.existsSync(dotenvFile)) {
     require('dotenv').config({
       path: dotenvFile,
@@ -45,16 +43,14 @@ dotenvFiles.forEach(dotenvFile => {
 const appDirectory = fs.realpathSync(process.cwd());
 const nodePath = (process.env.NODE_PATH || '')
   .split(path.delimiter)
-  .filter(folder => folder && !path.isAbsolute(folder))
-  .map(folder => path.resolve(appDirectory, folder))
+  .filter((folder) => folder && !path.isAbsolute(folder))
+  .map((folder) => path.resolve(appDirectory, folder))
   .join(path.delimiter);
 
 const getHOST = ({ host }) => process.env.HOST || host || 'localhost';
 const getPORT = ({ port }) => process.env.PORT || port || 3000;
-const getDEV_SERVER_PORT = options =>
-  process.env.DEV_SERVER_PORT ||
-  options.devServerPort ||
-  parseInt(getPORT(options), 10) + 1;
+const getDEV_SERVER_PORT = (options) =>
+  process.env.DEV_SERVER_PORT || options.devServerPort || parseInt(getPORT(options), 10) + 1;
 
 // Grab NODE_ENV and RAZZLE_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
@@ -66,7 +62,7 @@ const RAZZLE = /^RAZZLE_/i;
  */
 function getClientEnvironment(target, options) {
   const raw = Object.keys(process.env)
-    .filter(key => RAZZLE.test(key))
+    .filter((key) => RAZZLE.test(key))
     .reduce(
       (env, key) => {
         env[key] = process.env[key];
@@ -81,7 +77,7 @@ function getClientEnvironment(target, options) {
         HOST: getHOST(options),
         // RAZZLE_ASSETS_MANIFEST: paths.appManifest, // needs to be set dynamically
 
-        BUILD_PATH: paths.appBuild,
+        BUILD_DIR: paths.appBuild,
         BUILD_TARGET: target === 'web' ? 'client' : 'server',
         // only for production builds. Useful if you need to serve from a CDN
         PUBLIC_PATH: process.env.PUBLIC_PATH || '/',
@@ -96,10 +92,7 @@ function getClientEnvironment(target, options) {
             : '/'),
         // The public dir changes between dev and prod, so we use an environment
         // variable available to users.
-        RAZZLE_PUBLIC_DIR:
-          process.env.NODE_ENV === 'production'
-            ? paths.appBuildPublic
-            : paths.appPublic,
+        PUBLIC_DIR: process.env.NODE_ENV !== 'production' ? paths.appBuildPublic : paths.appPublic,
       }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin

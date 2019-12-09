@@ -5,6 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 const AssetsPlugin = require('assets-webpack-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 const StartServerPlugin = require('start-server-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const paths = require('./paths');
 const resolve = require('./webpack/resolve');
 
@@ -17,9 +18,6 @@ module.exports = (
     name,
     entry: appSrcIndexJsPath, // only support single entry in webpack config. renamed for clarity
     // module
-  },
-  serverOptions = {
-    assetsJsonPaths: [],
   }
 ) => {
   // First we check to see if the user has a custom .babelrc file, otherwise
@@ -38,14 +36,21 @@ module.exports = (
 
   // This is our base webpack config.
   const config = {
-    stats: false,
+    // stats: {
+    //   preset: 'verbose',
+    //   colors: true,
+    // },
+    // stats: {
+    //   colors: true,
+    // },
+    // profile: true,
     name,
     // Set webpack mode:
     mode: IS_DEV ? 'development' : 'production',
     // Set webpack context to the current command's directory
     context: process.cwd(),
     // Specify target (either 'node' or 'web')
-    target: target,
+    target,
     // Controversially, decide on sourcemaps.
     devtool: IS_DEV ? 'cheap-module-source-map' : 'source-map',
     // We need to tell webpack how to resolve both Razzle's node_modules and
@@ -89,7 +94,7 @@ module.exports = (
           /\.(svg|png|jpg|jpeg|gif|ico)$/,
           /\.(mp4|mp3|ogg|swf|webp)$/,
           /\.(css|scss|sass|sss|less)$/,
-        ].filter(x => x),
+        ].filter((x) => x),
       }),
     ];
 
@@ -139,7 +144,7 @@ module.exports = (
           nodeArgs,
         }),
         // Ignore *.assets.json to avoid infinite recompile bug
-        new webpack.WatchIgnorePlugin([/(assets.json)/g]),
+        new webpack.WatchIgnorePlugin([/assets\.json|loadable\.json/g]),
         // new webpack.WatchIgnorePlugin(serverOptions.assetsJsonPaths)
         // new webpack.WatchIgnorePlugin(['C:/_forks/razzle/examples/with-iabbb-stack/build/site_en.assets.json'])
       ];
@@ -150,10 +155,15 @@ module.exports = (
     // Name of the configuration. Used when loading multiple configurations.
     // (config.name = name),
     config.plugins = [
+      new WebpackBar({
+        color: '#f56be2',
+        name,
+        profile: true,
+      }),
       // Output our JS and CSS files in a manifest file called assets.json
       // in the build directory.
       new AssetsPlugin({
-        path: paths.appBuild,
+        path: dotenv.raw.PUBLIC_DIR,
         // filename: 'assets.json'
         filename: `${name}.assets.json`,
         prettyPrint: true,
@@ -161,7 +171,7 @@ module.exports = (
       }),
       new LoadablePlugin({
         filename: `${name}.loadable.json`,
-        writeToDisk: true,
+        // writeToDisk: true,
       }),
     ];
 
@@ -190,16 +200,15 @@ module.exports = (
 
       // Setup Webpack Dev Server on port 3001 and
       // specify our client entry point /client/index.js
+      // config.entry = [require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'), appSrcIndexJsPath];
       config.entry = {
-        [name]: [
-          require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'),
-          appSrcIndexJsPath,
-        ],
-        // client: [
-        //   require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'),
-        //   paths.appClientIndexJs,
-        // ],
+        [name]: [require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'), appSrcIndexJsPath],
       };
+      //   // client: [
+      //   //   require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'),
+      //   //   paths.appClientIndexJs,
+      //   // ],
+      // };
 
       // Configure our client bundles output. Not the public path is to 3001.
       config.output = {
@@ -210,13 +219,15 @@ module.exports = (
         pathinfo: true,
         chunkFilename: '[name].js',
         libraryTarget: 'var',
-        devtoolModuleFilenameTemplate: info =>
-          path.resolve(info.resourcePath).replace(/\\/g, '/'),
+        devtoolModuleFilenameTemplate: (info) => path.resolve(info.resourcePath).replace(/\\/g, '/'),
       };
 
       // Add client-only development plugins
       config.plugins = [
         ...config.plugins,
+        // new webpack.debug.ProfilingPlugin({
+        //   outputPath: 'profiling/profileEvents.json',
+        // }),
         new webpack.HotModuleReplacementPlugin({
           multiStep: true,
         }),
@@ -236,10 +247,9 @@ module.exports = (
       };
     } else {
       // Specify production entry point (/client/index.js)
-      config.entry = {
-        // client: paths.appClientIndexJs,
-        [name]: appSrcIndexJsPath,
-      };
+      config.entry = { [name]: appSrcIndexJsPath };
+      // config.entry = appSrcIndexJsPath;
+      // client: paths.appClientIndexJs,
 
       // Specify the client output directory and paths. Notice that we have
       // changed the publiPath to just '/' from http://localhost:3001. This is because

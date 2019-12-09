@@ -1,7 +1,3 @@
-const path = require('path');
-const fs = require('fs-extra');
-
-import App from './apps/Website/App';
 import React from 'react';
 import Koa from 'koa';
 import serve from 'koa-static';
@@ -10,10 +6,16 @@ import Router from 'koa-router';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { ServerStyleSheets } from '@material-ui/core/styles';
-// import { ChunkExtractor } from '@loadable/server';
+import { ChunkExtractor } from '@loadable/server';
+import App from './apps/Website/App';
+
+const path = require('path');
+const fs = require('fs-extra');
 
 const StaticRouter = require('react-router-dom').StaticRouter;
-const appName = 'site_en';
+
+const locale = 'es';
+const appName = `site_${locale}`;
 
 // Initialize `koa-router` and setup a route listening on `GET /*`
 // Logic has been splitted into two chained middleware functions
@@ -22,9 +24,12 @@ const router = new Router();
 router.get(
   '/*',
   (ctx, next) => {
-    // const extractor = new ChunkExtractor({ statsFile: path.resolve(process.env.BUILD_PATH, `${appName}.loadable.json`) });
+    const extractor = new ChunkExtractor({
+      statsFile: path.resolve(process.env.PUBLIC_DIR, `${appName}.loadable.json`),
+      entrypoints: [appName],
+    });
 
-    const assets = fs.readJsonSync(path.join(process.env.BUILD_PATH, `${appName}.assets.json`));
+    // const assets = fs.readJsonSync(path.join(process.env.PUBLIC_DIR, `${appName}.assets.json`));
 
     // Create the server side style sheet
     const styledSheet = new ServerStyleSheet();
@@ -32,11 +37,13 @@ router.get(
     const context = {};
 
     const markup = renderToString(
-      styledSheet.collectStyles(
-        materialSheet.collect(
-          <App>
-            {({ Controller }) => <Controller router={StaticRouter} location={ctx.url} context={context} />}
-          </App>
+      extractor.collectChunks(
+        styledSheet.collectStyles(
+          materialSheet.collect(
+            <App locale={locale}>
+              {({ Controller }) => <Controller router={StaticRouter} location={ctx.url} context={context} />}
+            </App>
+          )
         )
       )
     );
@@ -68,10 +75,10 @@ router.get(
             </style>
           </div>
           ${
-            // ctx.state.scripts
-            process.env.NODE_ENV === 'production'
-              ? `<script src="${ctx.state.assets.site_en.js}" defer></script>`
-              : `<script src="${ctx.state.assets.site_en.js}" defer crossorigin></script>`
+            ctx.state.scripts
+            // process.env.NODE_ENV === 'production'
+            //   ? `<script src="${ctx.state.assets.site_en.js}" defer></script>`
+            //   : `<script src="${ctx.state.assets.site_en.js}" defer crossorigin></script>`
           }
       </head>
       <body>          
@@ -87,8 +94,8 @@ server
   // `koa-helmet` provides security headers to help prevent common, well known attacks
   // @see https://helmetjs.github.io/
   .use(helmet())
-  // Serve static files located under `process.env.RAZZLE_PUBLIC_DIR`
-  .use(serve(process.env.RAZZLE_PUBLIC_DIR))
+  // Serve static files located under `process.env.PUBLIC_DIR`
+  .use(serve(process.env.PUBLIC_DIR))
   .use(router.routes())
   .use(router.allowedMethods());
 

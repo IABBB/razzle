@@ -7,6 +7,7 @@
     "packages/svg-icon-loader",
     "packages/eslint-config-iabbb",
     "packages/prettier-config-iabbb",
+    "packages/utils",
     "examples/*"
   ],
   "useWorkspaces": true,

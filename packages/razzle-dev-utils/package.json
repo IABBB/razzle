@@ -20,6 +20,7 @@
     "chalk": "2.4.2",
     "jest-message-util": "^24.9.0",
     "react-dev-utils": "^9.1.0",
+    "rimraf": "3.0.0",
     "sockjs-client": "1.4.0",
     "strip-ansi": "5.2.0"
   }

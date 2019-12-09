@@ -1,0 +1,15 @@
+{
+    "title": "i18n-loader options",
+    "type": "object",
+    "properties": {
+      "defaultLocale": {
+        "description": "Default locale to fallback if current locale cannot be found.",
+        "type": "string"
+      },
+      "currentLocale": {
+        "description": "Primary locale preferred.",
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }

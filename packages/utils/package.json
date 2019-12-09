@@ -1,0 +1,12 @@
+{
+  "name": "@iabbb/utils",
+  "version": "3.0.1",
+  "description": "Common utilities",
+  "main": "index.js",
+  "author": "IABBB",
+  "repository": "git@github.com:IABBB/razzle.git",
+  "license": "MIT",
+  "files": [
+    "locale"
+  ]
+}
