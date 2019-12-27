@@ -15,11 +15,6 @@ module.exports = (fixture, options = {}) => {
       rules: [
         {
           test: /\.m?js?$/,
-          /**
-           * Exclude `\text\index.js` or else babel will process the result of `i18n-loader`.
-           * By default, without minfication, Babel adds spaces to the resultant JSON obj, resulting in a failed test.
-           */
-          exclude: /\\text\\index\.js$/,
           use: [
             {
               loader: require.resolve('babel-loader'),
@@ -31,7 +26,8 @@ module.exports = (fixture, options = {}) => {
           ],
         },
         {
-          test: /\\text\\index\.js$/,
+          type: 'javascript/auto', // to avoid default JSON loader
+          test: /\\text\\i18n\.json$/,
           use: {
             loader: path.resolve(__dirname, '../src/index.js'),
             options,

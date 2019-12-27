@@ -1,60 +1,84 @@
+const path = require('path');
+const fs = require('fs-extra');
 const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('@iabbb/razzle-dev-utils/logger');
 const isEmpty = require('lodash/isEmpty');
+const compiler = require('./compiler');
+const createClientConfig = require('./createClientConfig');
+const createServerConfig = require('./createServerConfig');
 const createConfig = require('./createConfig');
 const getIn = require('./getIn');
 const paths = require('./paths');
 
+// Enable to support custom options per script
+// /**
+//  * Validates a field in the scripts section of the razzle config which contains the config keys.
+//  * @param {Object} razzleCfg Razzle config
+//  * @param {Array<string>} objPath Path to field
+//  * @param {boolean} req Is field required
+//  */
+// const validateField = (razzleCfg, objPath = [], req) => {
+//   const configKeys = getIn(razzleCfg, objPath);
+//   if (!req && configKeys === undefined) return;
+//   if (!Array.isArray(configKeys)) {
+//     throw new TypeError(`Expected an \`Array\`, got \`${typeof configKeys}\``);
+//   }
+
+//   if (req && configKeys.length === 0) {
+//     throw Error('Expected `use` to contain config names');
+//   }
+
+//   configKeys.forEach((configKey) => {
+//     if (getIn(razzleCfg, ['configs', configKey]) === undefined) {
+//       throw Error(`Invalid config name \`${configKey}\` found in \`${objPath.join('.')}\``);
+//     }
+//   });
+// };
+
+// const validate = (razzleCfg) => {
+//   const scripts = Object.keys(getIn(razzleCfg, ['scripts']));
+//   // only validate the required script configs
+//   const requiredScripts = ['start', 'build'];
+//   requiredScripts.forEach((reqScript) => {
+//     if (!scripts.includes(reqScript)) {
+//       throw Error(`Expected \`${reqScript}\` in \`scripts\`, but none found.`);
+//     }
+//     validateField(razzleCfg, ['scripts', reqScript, 'build'], true);
+//     validateField(razzleCfg, ['scripts', reqScript, 'optional'], false);
+//   });
+// };
+
 let _razzleCfg = {};
 
-const validateScriptUseField = (razzleCfg, scriptName) => {
-  const configKeys = getIn(razzleCfg, ['scripts', scriptName, 'use']);
-  if (!Array.isArray(configKeys)) {
-    throw new TypeError(`Expected an \`Array\`, got \`${typeof configKeys}\``);
+const validateFnField = (razzleCfg, objPath = []) => {
+  const value = getIn(razzleCfg, objPath);
+  if (typeof value !== 'function') {
+    throw new TypeError(`Expected an \`Function\`, got \`${typeof value}\` at ${objPath.join('.')}`);
   }
-  if (configKeys.length === 0) {
-    throw Error('Expected `use` to contain config names');
-  }
-  configKeys.forEach((configKey) => {
-    if (getIn(razzleCfg, ['configs', configKey]) === undefined) {
-      throw Error(`Invalid config name \`${configKey}\` found in \`scripts.${scriptName}.use\``);
-    }
-  });
-};
-
-const validateScriptOptionalField = (razzleCfg, scriptName) => {
-  const configKeys = getIn(razzleCfg, ['scripts', scriptName, 'optional']);
-  if (configKeys === undefined) return;
-  if (!Array.isArray(configKeys)) {
-    throw new TypeError(`Expected an \`Array\`, got \`${typeof configKeys}\``);
-  }
-  configKeys.forEach((configKey) => {
-    if (getIn(razzleCfg, ['configs', configKey]) === undefined) {
-      throw Error(`Invalid config name \`${configKey}\` found in \`scripts.${scriptName}.optional\``);
-    }
-  });
 };
 
 const validate = (razzleCfg) => {
-  const scripts = Object.keys(getIn(razzleCfg, ['scripts']));
+  const configs = Object.keys(getIn(razzleCfg, ['configs']));
   // only validate the required script configs
-  const requiredScripts = ['start', 'build'];
-  requiredScripts.forEach((reqScript) => {
-    if (!scripts.includes(reqScript)) {
-      throw Error(`Expected \`${reqScript}\` in \`scripts\`, but none found.`);
+  const requiredConfigs = ['client', 'server'];
+  requiredConfigs.forEach((reqConfig) => {
+    if (!configs.includes(reqConfig)) {
+      throw Error(`Expected required \`${reqConfig}\` in \`configs\`, but none found.`);
     }
-    validateScriptUseField(razzleCfg, reqScript);
-    validateScriptOptionalField(razzleCfg, reqScript);
+    validateFnField(razzleCfg, ['configs', reqConfig]);
   });
 };
 
 const read = () => {
   try {
+    // Using require() here into order to load the file dynamically and cache it bc that's what require does
+    // eslint-disable-next-line import/no-dynamic-require, global-require
     _razzleCfg = require(paths.appRazzleConfig);
     validate(_razzleCfg);
   } catch (e) {
     clearConsole();
     logger.error('Invalid razzle.config.js file.', e);
+
     process.exit(1);
   }
   return _razzleCfg;
@@ -66,40 +90,40 @@ const get = (arrPath) => {
   return getIn(_razzleCfg, p);
 };
 
-/**
- * Generates the webpack config defined in razzle.config.js combined with createConfig.js
- * @param {Object} dotenv Friendly process.env
- * @returns {Function} Creates the webpack config
- */
-const razzleConfigFactory = (dotenv) => {
-  // Create parameters used by the config generators in razzle.config.js
-  // Provide a bunch of options to the user to customize their webpack config creation
-  const _createConfigParams = {
-    createWebpackConfig: (appConfig) => createConfig(appConfig.target, dotenv, appConfig),
-    paths,
-    dotenv,
-  };
+const createConfigParams = (configName, dotenv) => ({
+  createWebpackConfig: (appConfig) => {
+    const initConfig = createConfig(dotenv, appConfig);
+    return configName === 'server'
+      ? createServerConfig(dotenv, paths, initConfig)
+      : createClientConfig(configName === 'client', dotenv, paths, initConfig);
+  },
+  paths,
+  dotenv,
+});
 
-  return (configName) => {
-    const _createConfig = get(['configs', configName]);
-    if (_createConfig) {
-      const webpackConfig = _createConfig(_createConfigParams);
-      return Array.isArray(webpackConfig) ? webpackConfig : [webpackConfig];
-    }
-    return [];
-  };
+const runConfigFn = (configName, dotenv) => {
+  const _createConfig = get(['configs', configName]);
+  if (_createConfig) {
+    const params = createConfigParams(configName, dotenv);
+    const webpackConfig = _createConfig(params);
+    // fs.writeJsonSync(
+    //   path.resolve(__dirname, `webpack-generated__${configName}__${Date.now()}.json`),
+    //   webpackConfig,
+    // );
+    return Array.isArray(webpackConfig) ? webpackConfig : [webpackConfig];
+  }
+  return [];
 };
 
-const buildConfigs = (configKeys = [], createClientConfig) => {
+const buildConfigs = (configKeys = [], dotenv) => {
   return configKeys.reduce((acc, cur) => {
-    const config = createClientConfig(cur);
+    const config = runConfigFn(cur, dotenv);
     return [...acc, ...config];
   }, []);
 };
 
 const run = (configKeys = [], dotenv) => {
-  const createClientConfig = razzleConfigFactory(dotenv);
-  return buildConfigs(configKeys, createClientConfig).flat(); // flatten by 1 in case of multiple webpack configs per config generator
+  return buildConfigs(configKeys, dotenv).flat(); // flatten by 1 in case of multiple webpack configs per config generator
 };
 
 module.exports = {

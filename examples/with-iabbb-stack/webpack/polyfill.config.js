@@ -1,11 +1,6 @@
-'use strict';
-
 const AssetsPlugin = require('assets-webpack-plugin');
 
 module.exports = ({ mode = 'development', outputPath, outputPublicPath }) => {
-  // console.log(require.resolve('../src/apps/Polyfill/index.js'));
-  // console.log(outputPath);
-  // console.log(outputPublicPath);
   const IS_DEV = mode === 'development';
   return {
     target: 'web',

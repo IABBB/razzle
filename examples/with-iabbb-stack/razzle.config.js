@@ -1,13 +1,21 @@
+/* eslint-disable global-require */
 const i18n = require('./i18n.config');
-
+/**
+ * Client and Server configs are required.
+ * All other configs listed are considered optional and must me opted-in with `--polyfil` or `--headerfooter` and will not be watched.
+ */
 module.exports = {
   configs: {
-    website: ({ createWebpackConfig }) => {
+    client: ({ createWebpackConfig }) => {
       const createConfig = require('./webpack/website.config.js');
       return i18n.locales.map((locale) => {
         const appConfig = createConfig(locale);
         return createWebpackConfig(appConfig);
       });
+    },
+    server: ({ createWebpackConfig }) => {
+      const createConfig = require('./webpack/server.config.js');
+      return createWebpackConfig(createConfig());
     },
     polyfill: ({ paths, dotenv }) =>
       require('./webpack/polyfill.config.js')({
@@ -21,18 +29,6 @@ module.exports = {
         const appConfig = createConfig(locale);
         return createWebpackConfig(appConfig);
       });
-    },
-  },
-  scripts: {
-    start: {
-      ssr: ['website'], // create an ssr bundle
-      build: ['website', 'headerfooter'],
-      optional: ['polyfill'],
-      devClient: ['website'],
-    },
-    build: {
-      ssr: ['website'],
-      build: ['website', 'headerfooter', 'polyfill'],
     },
   },
 };

@@ -3,8 +3,9 @@
 process.env.NODE_ENV = 'development';
 const Worker = require('jest-worker').default;
 const path = require('path');
-const chalk = require('chalk');
 const fs = require('fs-extra');
+const chalk = require('chalk');
+
 const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
 const merge = require('deepmerge');
@@ -28,12 +29,12 @@ process.noDeprecation = true; // turns off that loadQuery clutter.
 process.env.INSPECT_BRK = process.argv.find((arg) => arg.match(/--inspect-brk(=|$)/)) || '';
 process.env.INSPECT = process.argv.find((arg) => arg.match(/--inspect(=|$)/)) || '';
 
-const applyWebpackBarPlugin = (compiler, { name, color } = {}) =>
+const applyWebpackBarPlugin = (c, { name, color } = {}) =>
   new WebpackBar({
     color: color || '#f56be2',
-    name: name || compiler.name || 'client',
+    name: name || c.name || 'client',
     profile: true,
-  }).apply(compiler);
+  }).apply(c);
 
 const createDevServerOptions = (dotenv) => {
   // Configure webpack-dev-server to serve our client-side bundle from
@@ -71,10 +72,11 @@ const createDevServerOptions = (dotenv) => {
       app.use(errorOverlayMiddleware());
     },
     contentBase: dotenv.raw.PUBLIC_DIR,
+    writeToDisk: true,
     // Make sure loadable.json files are written
-    writeToDisk(filePath) {
-      return /loadable\.json$/.test(filePath);
-    },
+    // writeToDisk(filePath) {
+    //   return /loadable\.json$/.test(filePath);
+    // },
   };
 };
 
@@ -93,23 +95,27 @@ async function main() {
     port: 3000,
   });
 
-  // Create webpack configs for configs listed under 'use' and 'optional' fields
-  const clientConfigs = razzleConfig.run(razzleConfig.get(['scripts', 'start', 'use']), webDotEnv);
+  // Create the client configs
+
+  const clientConfigs = razzleConfig.run(['client'], webDotEnv);
+
   const optionalConfigs = razzleConfig.run(
-    razzleConfig.get(['scripts', 'start', 'optional']).filter((x) => process.argv.includes(`--${x}`)),
+    Object.keys(razzleConfig.get(['configs'])).filter((x) => process.argv.includes(`--${x}`)),
     webDotEnv
   );
 
+  // Delete build folder
+  await rimrafAsync(paths.appBuild);
   // Delete assets.json and loadable.json to always have a manifest up to date
-  await rimrafAsync(path.join(paths.appBuild, '**/*.?(assets|loadable).json'));
+  // await rimrafAsync(path.join(paths.appBuild, '**/*.?(assets|loadable).json'));
 
   // Instantiate the webpack compiler with the config
-  const clientMultiCompiler = compiler.create(clientConfigs[0]);
-  // clientMultiCompiler.compilers.forEach((compiler) => applyWebpackBarPlugin(compiler, { color: '#f56be2' }));
+  const clientMultiCompiler = compiler.create(clientConfigs);
+  // clientMultiCompiler.compilers.forEach((c) => applyWebpackBarPlugin(c, { color: '#f56be2' }));
 
   if (optionalConfigs.length > 0) {
     const opMultiCompiler = compiler.create(optionalConfigs);
-    opMultiCompiler.compilers.forEach((compiler) => applyWebpackBarPlugin(compiler, { color: '#ffff00' }));
+    // opMultiCompiler.compilers.forEach((c) => applyWebpackBarPlugin(c, { color: '#ffff00' }));
     opMultiCompiler.run((err) => {
       if (err) {
         throw Error(err);
@@ -117,34 +123,40 @@ async function main() {
     });
   }
 
-  const serverConfig = createConfig(
-    'node',
-    getClientEnv('node', { clearConsole: true, host: 'localhost', port: 3000 }),
-    {}
+  const serverConfig = razzleConfig.run(
+    ['server'],
+    getClientEnv('node', { clearConsole: true, host: 'localhost', port: 3000 })
   );
-  // const serverCompiler = compiler.create(serverConfig);
+  const serverCompiler = compiler.create(serverConfig);
   // applyWebpackBarPlugin(serverCompiler, { name: 'server', color: '#c065f4' });
 
-  // fs.writeJsonSync(require('path').resolve(__dirname, `all-webpack-configs-generated__${Date.now()}.json`), clientConfigs.concat(serverConfig));
+  // fs.writeJsonSync(
+  //   path.resolve(__dirname, `all-webpack-configs-generated__${Date.now()}.json`),
+  //   clientConfigs.concat(serverConfig),
+  // );
 
   // Instatiate a variable to track server watching
-  // let watching;
+  let watching;
 
-  // // Start our server webpack instance in watch mode after assets compile
-  // clientMultiCompiler.hooks.done.tap('Clients Assets Compiled', () => {
-  //   if (watching) {
-  //     return;
-  //   }
-  //   // Otherwise, create a new watcher for our server code.
-  //   watching = serverCompiler.watch(
-  //     {
-  //       quiet: true,
-  //       stats: 'none',
-  //     },
-  //     /* eslint-disable no-unused-vars */
-  //     (stats) => {},
-  //   );
-  // });
+  // console.log('server compiled');
+  // Start our server webpack instance in watch mode after assets compile
+  clientMultiCompiler.hooks.done.tap('Clients Assets Compiled', () => {
+    if (watching) {
+      // console.log('watching server');
+      return;
+    }
+    // Otherwise, create a new watcher for our server code.
+    watching = serverCompiler.watch(
+      {
+        quiet: true,
+        stats: 'none',
+      },
+      /* eslint-disable no-unused-vars */
+      (stats) => {
+        // console.log('watching');
+      }
+    );
+  });
 
   // Create a new instance of Webpack-dev-server for our client assets.
   // This will actually run on a different port than the users app.

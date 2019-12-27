@@ -10,7 +10,7 @@ describe('i18n-loader tests', () => {
     });
 
     // await fs.writeJson('stats.json', stats.toJson()); // Enable for debugging
-    const output = stats.toJson().modules[0].source;
+    const output = stats.toJson().modules[1].source;
     const data = {
       title: 'Inicio',
       button: 'Click',
