@@ -1,9 +1,8 @@
-const path = require('path');
-const fs = require('fs-extra');
+// const path = require('path');
+// const fs = require('fs-extra');
 const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('@iabbb/razzle-dev-utils/logger');
 const isEmpty = require('lodash/isEmpty');
-const compiler = require('./compiler');
 const createClientConfig = require('./createClientConfig');
 const createServerConfig = require('./createServerConfig');
 const createConfig = require('./createConfig');

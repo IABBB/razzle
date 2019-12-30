@@ -1,7 +1,5 @@
 /* eslint-disable no-param-reassign */
-// const merge = require('deepmerge');
 const merge = require('webpack-merge');
-const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
@@ -50,16 +48,9 @@ module.exports = (dotenv, paths, cfgBase) => {
     }),
   ];
 
-  // defined in webpack config
-  // config.entry = [paths.appServerIndexJs];
-
   if (IS_DEV) {
     // Use watch mode
     _config.watch = true;
-    // config.entry.unshift('webpack/hot/poll?300');
-
-    // // Pretty format server errors
-    // config.entry.unshift('@iabbb/razzle-dev-utils/prettyNodeErrors');
 
     _config.entry = modifyEntry(cfgBase.entry, (chunkEntry) => {
       chunkEntry.unshift('webpack/hot/poll?300');
@@ -93,9 +84,7 @@ module.exports = (dotenv, paths, cfgBase) => {
       new WebpackBar({
         color: '#ffff00',
         name: cfgBase.name,
-      })
-      // new webpack.WatchIgnorePlugin(serverOptions.assetsJsonPaths)
-      // new webpack.WatchIgnorePlugin(['C:/_forks/razzle/examples/with-iabbb-stack/build/site_en.assets.json'])
+      }),
     );
   }
 

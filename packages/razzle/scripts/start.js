@@ -1,26 +1,19 @@
 #! /usr/bin/env node
 
 process.env.NODE_ENV = 'development';
-const Worker = require('jest-worker').default;
-const path = require('path');
-const fs = require('fs-extra');
+// const path = require('path');
+// const fs = require('fs-extra');
 const chalk = require('chalk');
-
-const webpack = require('webpack');
-const WebpackBar = require('webpackbar');
-const merge = require('deepmerge');
 const DevServer = require('webpack-dev-server');
-const printErrors = require('@iabbb/razzle-dev-utils/printErrors');
 const rimrafAsync = require('@iabbb/razzle-dev-utils/rimrafAsync');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('@iabbb/razzle-dev-utils/logger');
 const setPorts = require('@iabbb/razzle-dev-utils/setPorts');
 const getClientEnv = require('../config/env').getClientEnv;
-const createConfig = require('../config/createConfig');
 const paths = require('../config/paths');
 const razzleConfig = require('../config/razzleConfig');
-const compiler = require('../config/compiler');
+const compiler = require('../config/webpack/compiler');
 
 process.noDeprecation = true; // turns off that loadQuery clutter.
 
@@ -29,24 +22,16 @@ process.noDeprecation = true; // turns off that loadQuery clutter.
 process.env.INSPECT_BRK = process.argv.find((arg) => arg.match(/--inspect-brk(=|$)/)) || '';
 process.env.INSPECT = process.argv.find((arg) => arg.match(/--inspect(=|$)/)) || '';
 
-const applyWebpackBarPlugin = (c, { name, color } = {}) =>
-  new WebpackBar({
-    color: color || '#f56be2',
-    name: name || c.name || 'client',
-    profile: true,
-  }).apply(c);
-
 const createDevServerOptions = (dotenv) => {
   // Configure webpack-dev-server to serve our client-side bundle from
   // http://${dotenv.raw.HOST}:3001
   return {
-    stats: { all: false, errors: true, errorDetails: true, moduleTrace: true, warnings: true },
+    // stats: { all: false, errors: true, errorDetails: true, moduleTrace: true, warnings: true },
     // open: true,
     disableHostCheck: true,
-    // clientLogLevel: 'none',
+    clientLogLevel: 'none',
     // Enable gzip compression of generated files.
     compress: true,
-    // watchContentBase: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
@@ -57,10 +42,10 @@ const createDevServerOptions = (dotenv) => {
     },
     host: dotenv.raw.HOST,
     hot: true,
-    // noInfo: true,
+    noInfo: true,
     overlay: false,
     port: dotenv.raw.DEV_SERVER_PORT,
-    // quiet: true,
+    quiet: true,
     // By default files from `contentBase` will not trigger a page reload.
     // Reportedly, this avoids CPU overload on some systems.
     // https://github.com/facebookincubator/create-react-app/issues/293
@@ -101,21 +86,17 @@ async function main() {
 
   const optionalConfigs = razzleConfig.run(
     Object.keys(razzleConfig.get(['configs'])).filter((x) => process.argv.includes(`--${x}`)),
-    webDotEnv
+    webDotEnv,
   );
 
   // Delete build folder
   await rimrafAsync(paths.appBuild);
-  // Delete assets.json and loadable.json to always have a manifest up to date
-  // await rimrafAsync(path.join(paths.appBuild, '**/*.?(assets|loadable).json'));
 
   // Instantiate the webpack compiler with the config
   const clientMultiCompiler = compiler.create(clientConfigs);
-  // clientMultiCompiler.compilers.forEach((c) => applyWebpackBarPlugin(c, { color: '#f56be2' }));
 
   if (optionalConfigs.length > 0) {
     const opMultiCompiler = compiler.create(optionalConfigs);
-    // opMultiCompiler.compilers.forEach((c) => applyWebpackBarPlugin(c, { color: '#ffff00' }));
     opMultiCompiler.run((err) => {
       if (err) {
         throw Error(err);
@@ -125,10 +106,9 @@ async function main() {
 
   const serverConfig = razzleConfig.run(
     ['server'],
-    getClientEnv('node', { clearConsole: true, host: 'localhost', port: 3000 })
+    getClientEnv('node', { clearConsole: true, host: 'localhost', port: 3000 }),
   );
   const serverCompiler = compiler.create(serverConfig);
-  // applyWebpackBarPlugin(serverCompiler, { name: 'server', color: '#c065f4' });
 
   // fs.writeJsonSync(
   //   path.resolve(__dirname, `all-webpack-configs-generated__${Date.now()}.json`),
@@ -154,7 +134,7 @@ async function main() {
       /* eslint-disable no-unused-vars */
       (stats) => {
         // console.log('watching');
-      }
+      },
     );
   });
 
@@ -164,7 +144,8 @@ async function main() {
   const clientDevServer = new DevServer(clientMultiCompiler, createDevServerOptions(webDotEnv));
 
   // Start Webpack-dev-server
-  clientDevServer.listen((process.env.PORT && parseInt(process.env.PORT) + 1) || razzle.port || 3001, (err) => {
+  // eslint-disable-next-line radix
+  clientDevServer.listen((process.env.PORT && parseInt(process.env.PORT) + 1) || 3001, (err) => {
     if (err) {
       logger.error(err);
     }

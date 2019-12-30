@@ -46,10 +46,10 @@ router.get(
           materialSheet.collect(
             <App locale={locale} isSSR>
               {({ Controller }) => <Controller router={StaticRouter} location={ctx.url} context={context} />}
-            </App>
-          )
-        )
-      )
+            </App>,
+          ),
+        ),
+      ),
     );
 
     // Generate all the style tags so they can be rendered into the page
@@ -88,7 +88,7 @@ router.get(
           <div id="root">${ctx.state.markup}</div>
       </body>
     </html>`;
-  }
+  },
 );
 
 // Intialize and configure Koa application

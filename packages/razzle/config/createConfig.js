@@ -13,7 +13,7 @@ const createConfig = (dotenv, { name, resolve, target, ...cfgBase }) => {
         'webpack/hot/poll': require.resolve('webpack/hot/poll'),
       },
     },
-    resolve
+    resolve,
   );
 
   const _config = {
