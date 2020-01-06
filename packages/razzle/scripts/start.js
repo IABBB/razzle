@@ -74,11 +74,7 @@ async function main() {
   // fs.removeSync(paths.appManifest);
 
   // Get client env variables
-  const webDotEnv = getClientEnv('web', {
-    clearConsole: true,
-    host: 'localhost',
-    port: 3000,
-  });
+  const webDotEnv = getClientEnv('web');
 
   // Create the client configs
 
@@ -104,10 +100,7 @@ async function main() {
     });
   }
 
-  const serverConfig = razzleConfig.run(
-    ['server'],
-    getClientEnv('node', { clearConsole: true, host: 'localhost', port: 3000 }),
-  );
+  const serverConfig = razzleConfig.run(['server'], getClientEnv('node'));
   const serverCompiler = compiler.create(serverConfig);
 
   // fs.writeJsonSync(

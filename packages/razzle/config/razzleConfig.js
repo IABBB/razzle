@@ -97,7 +97,7 @@ const createConfigParams = (configName, dotenv) => ({
       : createClientConfig(configName === 'client', dotenv, paths, initConfig);
   },
   paths,
-  dotenv,
+  env: dotenv.raw,
 });
 
 const runConfigFn = (configName, dotenv) => {

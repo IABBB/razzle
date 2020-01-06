@@ -17,18 +17,18 @@ module.exports = {
       const createConfig = require('./webpack/server.config.js');
       return createWebpackConfig(createConfig());
     },
-    polyfill: ({ paths, dotenv }) =>
+    polyfill: ({ paths, env }) =>
       require('./webpack/polyfill.config.js')({
-        mode: dotenv.raw.NODE_ENV,
+        mode: env.NODE_ENV,
         outputPath: paths.appBuild,
-        outputPublicPath: dotenv.raw.CLIENT_PUBLIC_PATH,
+        outputPublicPath: env.CLIENT_PUBLIC_PATH,
       }),
-    headerfooter: ({ createWebpackConfig }) => {
-      const createConfig = require('./webpack/headerfooter.config.js');
-      return i18n.locales.map((locale) => {
-        const appConfig = createConfig(locale);
-        return createWebpackConfig(appConfig);
-      });
-    },
+    // headerfooter: ({ createWebpackConfig }) => {
+    //   const createConfig = require('./webpack/headerfooter.config.js');
+    //   return i18n.locales.map((locale) => {
+    //     const appConfig = createConfig(locale);
+    //     return createWebpackConfig(appConfig);
+    //   });
+    // },
   },
 };
