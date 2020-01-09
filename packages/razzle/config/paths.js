@@ -11,15 +11,15 @@ const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
-function ensureSlash(path, needsSlash) {
-  const hasSlash = path.endsWith('/');
+function ensureSlash(_path, needsSlash) {
+  const hasSlash = _path.endsWith('/');
   if (hasSlash && !needsSlash) {
-    return path.substr(path, path.length - 1);
+    return _path.substr(_path, _path.length - 1);
   }
   if (!hasSlash && needsSlash) {
-    return `${path}/`;
+    return `${_path}/`;
   }
-  return path;
+  return _path;
 }
 
 const getPublicUrl = (appPackageJson) => envPublicUrl || require(appPackageJson).homepage;
@@ -46,6 +46,7 @@ module.exports = {
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
   appBuildPublic: resolveApp('build/public'),
+  appBuildPublicClient: resolveApp('build/public/dist'),
   // appManifest: resolveApp('build/assets.json'), // needs to support dynamic, multi-app
   appPublic: resolveApp('public'),
   appNodeModules: resolveApp('node_modules'),

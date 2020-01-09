@@ -56,7 +56,7 @@ if (!configuredCount) {
 //   .join(path.delimiter);
 
 // eslint-disable-next-line camelcase
-const getDEV_SERVER_PORT = () => process.env.DEV_SERVER_PORT || parseInt(process.env.PORT, 10) + 1;
+// const getDEV_SERVER_PORT = () => process.env.DEV_SERVER_PORT || parseInt(process.env.PORT, 10) + 1;
 
 // Grab NODE_ENV and RAZZLE_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
@@ -66,7 +66,7 @@ const RAZZLE = /^RAZZLE_/i;
  * @param {string} target 'web' or 'node'
  * @param {Object} options options to determine the default process variables
  */
-function getClientEnvironment(target) {
+function getClientEnvironment() {
   const raw = Object.keys(process.env)
     .filter((key) => RAZZLE.test(key))
     .reduce(
@@ -77,26 +77,27 @@ function getClientEnvironment(target) {
       {
         // Useful for determining whether we’re running in production mode.
         // Most importantly, it switches React into the correct mode.
-        NODE_ENV: process.env.NODE_ENV || 'development',
+        NODE_ENV: process.env.NODE_ENV || 'production',
         PORT: process.env.PORT,
         VERBOSE: !!process.env.VERBOSE,
         HOST: process.env.HOST,
-        // RAZZLE_ASSETS_MANIFEST: paths.appManifest, // needs to be set dynamically
-
+        IS_LOCAL_DEVELOPMENT: !!(process.env.IS_LOCAL_DEVELOPMENT && process.env.IS_LOCAL_DEVELOPMENT === 'true'),
         BUILD_DIR: paths.appBuild,
-        BUILD_TARGET: target === 'web' ? 'client' : 'server',
         // only for production builds. Useful if you need to serve from a CDN
+        // PUBLIC_PATH: process.env.PUBLIC_PATH || '/',
         PUBLIC_PATH: process.env.PUBLIC_PATH || '/',
-        DEV_SERVER_PORT: getDEV_SERVER_PORT(),
+        CLIENT_PUBLIC_PATH: process.env.CLIENT_PUBLIC_PATH || '/dist',
+        // DEV_SERVER_PORT: getDEV_SERVER_PORT(),
         // CLIENT_PUBLIC_PATH is a PUBLIC_PATH for NODE_ENV === 'development' && BUILD_TARGET === 'client'
         // It's useful if you're running razzle in a non-localhost container. Ends in a /
         // During dev this is used by the webpack dev server
-        CLIENT_PUBLIC_PATH:
-          process.env.CLIENT_PUBLIC_PATH ||
-          (process.env.NODE_ENV !== 'production' ? `http://${process.env.HOST}:${getDEV_SERVER_PORT()}/` : '/'),
+        // CLIENT_PUBLIC_PATH:
+        //   process.env.CLIENT_PUBLIC_PATH ||
+        //   (process.env.NODE_ENV !== 'production' ? `http://${process.env.HOST}:${getDEV_SERVER_PORT()}/` : '/'),
         // The public dir changes between dev and prod, so we use an environment
         // variable available to users.
-        PUBLIC_DIR: process.env.NODE_ENV !== 'production' ? paths.appBuildPublic : paths.appPublic,
+        // PUBLIC_DIR: process.env.NODE_ENV !== 'production' ? paths.appBuildPublic : paths.appPublic,
+        PUBLIC_DIR: paths.appBuildPublic,
       },
     );
   // Stringify all values so we can feed into Webpack DefinePlugin

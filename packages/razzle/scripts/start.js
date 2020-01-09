@@ -9,8 +9,8 @@ const rimrafAsync = require('@iabbb/razzle-dev-utils/rimrafAsync');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('@iabbb/razzle-dev-utils/logger');
-const setPorts = require('@iabbb/razzle-dev-utils/setPorts');
-const getClientEnv = require('../config/env').getClientEnv;
+// const setPorts = require('@iabbb/razzle-dev-utils/setPorts');
+const dotenv = require('../config/env').getClientEnv();
 const paths = require('../config/paths');
 const razzleConfig = require('../config/razzleConfig');
 const compiler = require('../config/webpack/compiler');
@@ -22,7 +22,7 @@ process.noDeprecation = true; // turns off that loadQuery clutter.
 process.env.INSPECT_BRK = process.argv.find((arg) => arg.match(/--inspect-brk(=|$)/)) || '';
 process.env.INSPECT = process.argv.find((arg) => arg.match(/--inspect(=|$)/)) || '';
 
-const createDevServerOptions = (dotenv) => {
+const createDevServerOptions = ({ host, port, contentBase }) => {
   // Configure webpack-dev-server to serve our client-side bundle from
   // http://${dotenv.raw.HOST}:3001
   return {
@@ -40,11 +40,11 @@ const createDevServerOptions = (dotenv) => {
       // See https://github.com/facebookincubator/create-react-app/issues/387.
       disableDotRule: true,
     },
-    host: dotenv.raw.HOST,
+    host,
     hot: true,
     noInfo: true,
     overlay: false,
-    port: dotenv.raw.DEV_SERVER_PORT,
+    port,
     quiet: true,
     // By default files from `contentBase` will not trigger a page reload.
     // Reportedly, this avoids CPU overload on some systems.
@@ -56,7 +56,7 @@ const createDevServerOptions = (dotenv) => {
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());
     },
-    contentBase: dotenv.raw.PUBLIC_DIR,
+    contentBase,
     writeToDisk: true,
     // Make sure loadable.json files are written
     // writeToDisk(filePath) {
@@ -74,15 +74,14 @@ async function main() {
   // fs.removeSync(paths.appManifest);
 
   // Get client env variables
-  const webDotEnv = getClientEnv('web');
+  // const webDotEnv = getClientEnv('web');
 
   // Create the client configs
-
-  const clientConfigs = razzleConfig.run(['client'], webDotEnv);
+  const clientConfigs = razzleConfig.run(['client'], dotenv);
 
   const optionalConfigs = razzleConfig.run(
     Object.keys(razzleConfig.get(['configs'])).filter((x) => process.argv.includes(`--${x}`)),
-    webDotEnv,
+    dotenv,
   );
 
   // Delete build folder
@@ -100,7 +99,7 @@ async function main() {
     });
   }
 
-  const serverConfig = razzleConfig.run(['server'], getClientEnv('node'));
+  const serverConfig = razzleConfig.run(['server'], dotenv);
   const serverCompiler = compiler.create(serverConfig);
 
   // fs.writeJsonSync(
@@ -131,22 +130,27 @@ async function main() {
     );
   });
 
+  const publicPathUrl = new URL(dotenv.raw.PUBLIC_PATH);
+
   // Create a new instance of Webpack-dev-server for our client assets.
   // This will actually run on a different port than the users app.
   // Make sure to pass in dev-server options here, as the second argument otherwise it will be ignored
-  const clientDevServer = new DevServer(clientMultiCompiler, createDevServerOptions(webDotEnv));
+  const clientDevServer = new DevServer(
+    clientMultiCompiler,
+    createDevServerOptions({
+      host: publicPathUrl.hostname,
+      port: publicPathUrl.port,
+      contentBase: dotenv.raw.PUBLIC_DIR,
+    }),
+  );
 
   // Start Webpack-dev-server
   // eslint-disable-next-line radix
-  clientDevServer.listen((process.env.PORT && parseInt(process.env.PORT) + 1) || 3001, (err) => {
+  clientDevServer.listen(publicPathUrl.port, (err) => {
     if (err) {
       logger.error(err);
     }
   });
 }
 
-// Webpack compile in a try-catch
-
-setPorts()
-  .then(main)
-  .catch(console.error);
+main().catch(console.error);

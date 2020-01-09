@@ -1,0 +1,3977 @@
+{
+  "errors": [],
+  "warnings": [
+    "(site_en) asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  static/js/site_en.main.24699af3.chunk.js (267 KiB)",
+    "(site_en) entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  main (269 KiB)\n      static/js/site_en.runtime.8cbd394e.js\n      static/js/site_en.main.24699af3.chunk.js\n",
+    "(site_es) asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  static/js/site_es.main.24699af3.chunk.js (267 KiB)",
+    "(site_es) entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  main (269 KiB)\n      static/js/site_es.runtime.c3bff2cb.js\n      static/js/site_es.main.24699af3.chunk.js\n",
+    "(server) C:/_forks/razzle/node_modules/any-promise/register.js 24:14-37\nCritical dependency: the request of a dependency is an expression\n @ C:/_forks/razzle/node_modules/any-promise/index.js\n @ C:/_forks/razzle/node_modules/koa-compose/index.js\n @ C:/_forks/razzle/node_modules/koa-router/lib/router.js\n @ ./src/server/server.js\n @ ./src/server/index.js"
+  ],
+  "version": "4.41.4",
+  "hash": "e8ad8767e18375c7b62860f09476f9ccec285b8334aafd8183fa2584b29f6581c317b7abfdac257d",
+  "children": [
+    {
+      "errors": [],
+      "warnings": [
+        "asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  static/js/site_en.main.24699af3.chunk.js (267 KiB)",
+        "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  main (269 KiB)\n      static/js/site_en.runtime.8cbd394e.js\n      static/js/site_en.main.24699af3.chunk.js\n"
+      ],
+      "hash": "e8ad8767e18375c7b628",
+      "time": 9281,
+      "builtAt": 1578504082033,
+      "assetsByChunkName": {
+        "index-KGMaH": "static/js/site_en.index-KGMaH.d85a3f71.chunk.js",
+        "main": ["static/js/site_en.main.24699af3.chunk.js", "static/js/site_en.main.24699af3.chunk.js.map"],
+        "runtime": "static/js/site_en.runtime.8cbd394e.js"
+      },
+      "assets": [
+        {
+          "name": "site_en.loadable.json",
+          "size": 2999,
+          "chunks": [],
+          "chunkNames": [],
+          "info": {},
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_en.3.2014a92a.chunk.js",
+          "size": 78544,
+          "chunks": [3],
+          "chunkNames": [],
+          "info": { "immutable": true },
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_en.index-KGMaH.d85a3f71.chunk.js",
+          "size": 3819,
+          "chunks": [0],
+          "chunkNames": ["index-KGMaH"],
+          "info": { "immutable": true },
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_en.main.24699af3.chunk.js",
+          "size": 273501,
+          "chunks": [1],
+          "chunkNames": ["main"],
+          "info": { "immutable": true },
+          "emitted": true,
+          "isOverSizeLimit": true
+        },
+        {
+          "name": "static/js/site_en.main.24699af3.chunk.js.LICENSE",
+          "size": 2182,
+          "chunks": [],
+          "chunkNames": [],
+          "info": {},
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_en.main.24699af3.chunk.js.map",
+          "size": 117,
+          "chunks": [1],
+          "chunkNames": ["main"],
+          "info": { "development": true },
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_en.runtime.8cbd394e.js",
+          "size": 2358,
+          "chunks": [2],
+          "chunkNames": ["runtime"],
+          "info": { "immutable": true },
+          "emitted": true
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "main": {
+          "chunks": [2, 1],
+          "assets": [
+            "static/js/site_en.runtime.8cbd394e.js",
+            "static/js/site_en.main.24699af3.chunk.js",
+            "static/js/site_en.main.24699af3.chunk.js.map"
+          ],
+          "children": {},
+          "childAssets": {},
+          "isOverSizeLimit": true
+        }
+      },
+      "modules": [
+        {
+          "id": "+Cos",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+          "name": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js",
+          "index": 10,
+          "index2": 16,
+          "size": 12301,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "+wNj",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\esm\\objectWithoutPropertiesLoose.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "index": 11,
+          "index2": 9,
+          "size": 350,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+          "issuerId": "+Cos",
+          "issuerName": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": "+Cos",
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+              "name": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "11Hm",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js e34beb37978328c454721d3367ada3f4",
+          "name": "C:/_forks/razzle/node_modules/history/esm/history.js + 2 modules",
+          "index": 78,
+          "index2": 75,
+          "size": 31363,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+              "name": "C:/_forks/razzle/node_modules/history/esm/history.js",
+              "index": 78,
+              "index2": 75,
+              "size": 28728,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+              "issuerId": "daAW",
+              "issuerName": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": "daAW",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+                  "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\resolve-pathname\\esm\\resolve-pathname.js",
+              "name": "C:/_forks/razzle/node_modules/resolve-pathname/esm/resolve-pathname.js",
+              "index": 79,
+              "index2": 72,
+              "size": 1765,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/history/esm/history.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": "daAW",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+                  "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+                  "name": "C:/_forks/razzle/node_modules/history/esm/history.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\value-equal\\esm\\value-equal.js",
+              "name": "C:/_forks/razzle/node_modules/value-equal/esm/value-equal.js",
+              "index": 80,
+              "index2": 73,
+              "size": 860,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/history/esm/history.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": "daAW",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+                  "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+                  "name": "C:/_forks/razzle/node_modules/history/esm/history.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "filteredModules": 0
+        },
+        {
+          "id": "5Yy7",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\inherits.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/inherits.js",
+          "index": 25,
+          "index2": 24,
+          "size": 505,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "7nmT",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react-dom\\index.js",
+          "name": "C:/_forks/razzle/node_modules/react-dom/index.js",
+          "index": 6,
+          "index2": 8,
+          "size": 1363,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "97Jx",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\extends.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/extends.js",
+          "index": 28,
+          "index2": 26,
+          "size": 427,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "AuHH",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\getPrototypeOf.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/getPrototypeOf.js",
+          "index": 24,
+          "index2": 22,
+          "size": 267,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "BFfR",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\esm\\inheritsLoose.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js",
+          "index": 14,
+          "index2": 12,
+          "size": 204,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+          "issuerId": "+Cos",
+          "issuerName": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": "+Cos",
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+              "name": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "ERkP",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react\\index.js",
+          "name": "C:/_forks/razzle/node_modules/react/index.js",
+          "index": 3,
+          "index2": 4,
+          "size": 190,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "KEM+",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\defineProperty.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/defineProperty.js",
+          "index": 27,
+          "index2": 25,
+          "size": 289,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "L7Bv",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js 081cb293e9b500f08d4cf55cb4ec9d2d",
+          "name": "./src/client/apps/Website/client.js + 13 modules",
+          "index": 0,
+          "index2": 127,
+          "size": 11246,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js",
+              "index": 0,
+              "index2": 127,
+              "size": 1462,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js",
+              "index": 18,
+              "index2": 125,
+              "size": 1946,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/client.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\cookie\\names.js",
+              "name": "./src/client/utils/cookie/names.js",
+              "index": 127,
+              "index2": 126,
+              "size": 42,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/client.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\GlobalStyles.js",
+              "name": "./src/client/styles/GlobalStyles.js",
+              "index": 32,
+              "index2": 41,
+              "size": 724,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\theme.js",
+              "name": "./src/client/styles/theme.js",
+              "index": 44,
+              "index2": 63,
+              "size": 283,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+              "name": "./src/client/utils/routing/Routing.js",
+              "index": 66,
+              "index2": 79,
+              "size": 793,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\routes.js",
+              "name": "./src/client/apps/Website/routes.js",
+              "index": 82,
+              "index2": 118,
+              "size": 184,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\i18n\\Provider.js",
+              "name": "./src/client/utils/i18n/Provider.js",
+              "index": 121,
+              "index2": 120,
+              "size": 469,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "index": 123,
+              "index2": 124,
+              "size": 2450,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+              "issuerId": "lIKg",
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\renderRoutes.js",
+              "name": "./src/client/utils/routing/renderRoutes.js",
+              "index": 69,
+              "index2": 78,
+              "size": 2111,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+              "issuerId": null,
+              "issuerName": "./src/client/utils/routing/Routing.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+                  "name": "./src/client/utils/routing/Routing.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\ThemeContext.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/ThemeContext.js",
+              "index": 125,
+              "index2": 121,
+              "size": 101,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\nested.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/nested.js",
+              "index": 126,
+              "index2": 123,
+              "size": 133,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\orange.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/orange.js",
+              "index": 65,
+              "index2": 62,
+              "size": 294,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\index.js",
+              "issuerId": "jTHy",
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\theme.js",
+                  "name": "./src/client/styles/theme.js"
+                },
+                {
+                  "id": "jTHy",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\useTheme.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/useTheme.js",
+              "index": 124,
+              "index2": 122,
+              "size": 149,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\index.js",
+              "issuerId": "ph4N",
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                },
+                {
+                  "id": "ph4N",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "filteredModules": 0
+        },
+        {
+          "id": "N+ot",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\possibleConstructorReturn.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js",
+          "index": 21,
+          "index2": 21,
+          "size": 343,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "daAW",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+          "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js",
+          "index": 70,
+          "index2": 77,
+          "size": 9997,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "fYnN",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\js-cookie\\src\\js.cookie.js",
+          "name": "C:/_forks/razzle/node_modules/js-cookie/src/js.cookie.js",
+          "index": 2,
+          "index2": 1,
+          "size": 3883,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "zqBf",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\jsx.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/jsx.js",
+          "index": 1,
+          "index2": 0,
+          "size": 1138,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        }
+      ],
+      "filteredModules": 171,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": { "entries": [], "filteredEntries": 5, "debug": false }
+      },
+      "children": [],
+      "name": "site_en"
+    },
+    {
+      "errors": [],
+      "warnings": [
+        "asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  static/js/site_es.main.24699af3.chunk.js (267 KiB)",
+        "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  main (269 KiB)\n      static/js/site_es.runtime.c3bff2cb.js\n      static/js/site_es.main.24699af3.chunk.js\n"
+      ],
+      "hash": "60f09476f9ccec285b83",
+      "time": 9262,
+      "builtAt": 1578504082033,
+      "assetsByChunkName": {
+        "index-KGMaH": "static/js/site_es.index-KGMaH.db3548db.chunk.js",
+        "main": ["static/js/site_es.main.24699af3.chunk.js", "static/js/site_es.main.24699af3.chunk.js.map"],
+        "runtime": "static/js/site_es.runtime.c3bff2cb.js"
+      },
+      "assets": [
+        {
+          "name": "site_es.loadable.json",
+          "size": 2999,
+          "chunks": [],
+          "chunkNames": [],
+          "info": {},
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_es.3.2014a92a.chunk.js",
+          "size": 78544,
+          "chunks": [3],
+          "chunkNames": [],
+          "info": { "immutable": true },
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_es.index-KGMaH.db3548db.chunk.js",
+          "size": 3811,
+          "chunks": [0],
+          "chunkNames": ["index-KGMaH"],
+          "info": { "immutable": true },
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_es.main.24699af3.chunk.js",
+          "size": 273501,
+          "chunks": [1],
+          "chunkNames": ["main"],
+          "info": { "immutable": true },
+          "emitted": true,
+          "isOverSizeLimit": true
+        },
+        {
+          "name": "static/js/site_es.main.24699af3.chunk.js.LICENSE",
+          "size": 2182,
+          "chunks": [],
+          "chunkNames": [],
+          "info": {},
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_es.main.24699af3.chunk.js.map",
+          "size": 117,
+          "chunks": [1],
+          "chunkNames": ["main"],
+          "info": { "development": true },
+          "emitted": true
+        },
+        {
+          "name": "static/js/site_es.runtime.c3bff2cb.js",
+          "size": 2358,
+          "chunks": [2],
+          "chunkNames": ["runtime"],
+          "info": { "immutable": true },
+          "emitted": true
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "main": {
+          "chunks": [2, 1],
+          "assets": [
+            "static/js/site_es.runtime.c3bff2cb.js",
+            "static/js/site_es.main.24699af3.chunk.js",
+            "static/js/site_es.main.24699af3.chunk.js.map"
+          ],
+          "children": {},
+          "childAssets": {},
+          "isOverSizeLimit": true
+        }
+      },
+      "modules": [
+        {
+          "id": "+Cos",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+          "name": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js",
+          "index": 10,
+          "index2": 16,
+          "size": 12301,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "+wNj",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\esm\\objectWithoutPropertiesLoose.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "index": 11,
+          "index2": 9,
+          "size": 350,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+          "issuerId": "+Cos",
+          "issuerName": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": "+Cos",
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+              "name": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "11Hm",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js e34beb37978328c454721d3367ada3f4",
+          "name": "C:/_forks/razzle/node_modules/history/esm/history.js + 2 modules",
+          "index": 78,
+          "index2": 75,
+          "size": 31363,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+              "name": "C:/_forks/razzle/node_modules/history/esm/history.js",
+              "index": 78,
+              "index2": 75,
+              "size": 28728,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+              "issuerId": "daAW",
+              "issuerName": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": "daAW",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+                  "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\resolve-pathname\\esm\\resolve-pathname.js",
+              "name": "C:/_forks/razzle/node_modules/resolve-pathname/esm/resolve-pathname.js",
+              "index": 79,
+              "index2": 72,
+              "size": 1765,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/history/esm/history.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": "daAW",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+                  "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+                  "name": "C:/_forks/razzle/node_modules/history/esm/history.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\value-equal\\esm\\value-equal.js",
+              "name": "C:/_forks/razzle/node_modules/value-equal/esm/value-equal.js",
+              "index": 80,
+              "index2": 73,
+              "size": 860,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/history/esm/history.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": "daAW",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+                  "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\history\\esm\\history.js",
+                  "name": "C:/_forks/razzle/node_modules/history/esm/history.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "filteredModules": 0
+        },
+        {
+          "id": "5Yy7",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\inherits.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/inherits.js",
+          "index": 25,
+          "index2": 24,
+          "size": 505,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "7nmT",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react-dom\\index.js",
+          "name": "C:/_forks/razzle/node_modules/react-dom/index.js",
+          "index": 6,
+          "index2": 8,
+          "size": 1363,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "97Jx",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\extends.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/extends.js",
+          "index": 28,
+          "index2": 26,
+          "size": 427,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "AuHH",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\getPrototypeOf.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/getPrototypeOf.js",
+          "index": 24,
+          "index2": 22,
+          "size": 267,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "BFfR",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\esm\\inheritsLoose.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js",
+          "index": 14,
+          "index2": 12,
+          "size": 204,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+          "issuerId": "+Cos",
+          "issuerName": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": "+Cos",
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@loadable\\component\\dist\\loadable.esm.js",
+              "name": "C:/_forks/razzle/node_modules/@loadable/component/dist/loadable.esm.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "ERkP",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react\\index.js",
+          "name": "C:/_forks/razzle/node_modules/react/index.js",
+          "index": 3,
+          "index2": 4,
+          "size": 190,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "KEM+",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\defineProperty.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/defineProperty.js",
+          "index": 27,
+          "index2": 25,
+          "size": 289,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "L7Bv",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js 081cb293e9b500f08d4cf55cb4ec9d2d",
+          "name": "./src/client/apps/Website/client.js + 13 modules",
+          "index": 0,
+          "index2": 127,
+          "size": 11246,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js",
+              "index": 0,
+              "index2": 127,
+              "size": 1462,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js",
+              "index": 18,
+              "index2": 125,
+              "size": 1946,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/client.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\cookie\\names.js",
+              "name": "./src/client/utils/cookie/names.js",
+              "index": 127,
+              "index2": 126,
+              "size": 42,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/client.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\GlobalStyles.js",
+              "name": "./src/client/styles/GlobalStyles.js",
+              "index": 32,
+              "index2": 41,
+              "size": 724,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\theme.js",
+              "name": "./src/client/styles/theme.js",
+              "index": 44,
+              "index2": 63,
+              "size": 283,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+              "name": "./src/client/utils/routing/Routing.js",
+              "index": 66,
+              "index2": 79,
+              "size": 793,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\routes.js",
+              "name": "./src/client/apps/Website/routes.js",
+              "index": 82,
+              "index2": 118,
+              "size": 184,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\i18n\\Provider.js",
+              "name": "./src/client/utils/i18n/Provider.js",
+              "index": 121,
+              "index2": 120,
+              "size": 469,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "index": 123,
+              "index2": 124,
+              "size": 2450,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+              "issuerId": "lIKg",
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\renderRoutes.js",
+              "name": "./src/client/utils/routing/renderRoutes.js",
+              "index": 69,
+              "index2": 78,
+              "size": 2111,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+              "issuerId": null,
+              "issuerName": "./src/client/utils/routing/Routing.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+                  "name": "./src/client/utils/routing/Routing.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\ThemeContext.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/ThemeContext.js",
+              "index": 125,
+              "index2": 121,
+              "size": 101,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\nested.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/nested.js",
+              "index": 126,
+              "index2": 123,
+              "size": 133,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\orange.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/orange.js",
+              "index": 65,
+              "index2": 62,
+              "size": 294,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\index.js",
+              "issuerId": "jTHy",
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\theme.js",
+                  "name": "./src/client/styles/theme.js"
+                },
+                {
+                  "id": "jTHy",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\useTheme.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/useTheme.js",
+              "index": 124,
+              "index2": 122,
+              "size": 149,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\index.js",
+              "issuerId": "ph4N",
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+                  "name": "./src/client/apps/Website/client.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": "lIKg",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                },
+                {
+                  "id": "ph4N",
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "filteredModules": 0
+        },
+        {
+          "id": "N+ot",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\possibleConstructorReturn.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js",
+          "index": 21,
+          "index2": 21,
+          "size": 343,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/App.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "daAW",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+          "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js",
+          "index": 70,
+          "index2": 77,
+          "size": 9997,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "fYnN",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\js-cookie\\src\\js.cookie.js",
+          "name": "C:/_forks/razzle/node_modules/js-cookie/src/js.cookie.js",
+          "index": 2,
+          "index2": 1,
+          "size": 3883,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": "zqBf",
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\jsx.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/jsx.js",
+          "index": 1,
+          "index2": 0,
+          "size": 1138,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [1],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Website/client.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\client.js",
+              "name": "./src/client/apps/Website/client.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        }
+      ],
+      "filteredModules": 171,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": { "entries": [], "filteredEntries": 5, "debug": false }
+      },
+      "children": [],
+      "name": "site_es"
+    },
+    {
+      "errors": [],
+      "warnings": [
+        "C:/_forks/razzle/node_modules/any-promise/register.js 24:14-37\nCritical dependency: the request of a dependency is an expression\n @ C:/_forks/razzle/node_modules/any-promise/index.js\n @ C:/_forks/razzle/node_modules/koa-compose/index.js\n @ C:/_forks/razzle/node_modules/koa-router/lib/router.js\n @ ./src/server/server.js\n @ ./src/server/index.js"
+      ],
+      "hash": "34aafd8183fa2584b29f",
+      "time": 9557,
+      "builtAt": 1578504082335,
+      "assetsByChunkName": { "server": ["server.js", "server.js.map"] },
+      "assets": [
+        {
+          "name": "server.js",
+          "size": 783066,
+          "chunks": [0],
+          "chunkNames": ["server"],
+          "info": {},
+          "emitted": true
+        },
+        {
+          "name": "server.js.map",
+          "size": 2534486,
+          "chunks": [0],
+          "chunkNames": ["server"],
+          "info": { "development": true },
+          "emitted": true
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "server": { "chunks": [0], "assets": ["server.js", "server.js.map"], "children": {}, "childAssets": {} }
+      },
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react\\index.js",
+          "name": "C:/_forks/razzle/node_modules/react/index.js",
+          "index": 16,
+          "index2": 16,
+          "size": 190,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 5,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\@babel\\runtime\\helpers\\jsx.js",
+          "name": "C:/_forks/razzle/node_modules/@babel/runtime/helpers/jsx.js",
+          "index": 15,
+          "index2": 13,
+          "size": 1138,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 13,
+          "identifier": "external \"path\"",
+          "name": "external \"path\"",
+          "index": 33,
+          "index2": 28,
+          "size": 42,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 18,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js d3786d8fc7bb575bbc1c8208837bc132",
+          "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js + 6 modules",
+          "index": 350,
+          "index2": 354,
+          "size": 95571,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+              "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js",
+              "index": 350,
+              "index2": 354,
+              "size": 78555,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "issuerId": null,
+              "issuerName": "./src/server/server.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@emotion\\unitless\\dist\\unitless.esm.js",
+              "name": "C:/_forks/razzle/node_modules/@emotion/unitless/dist/unitless.esm.js",
+              "index": 353,
+              "index2": 348,
+              "size": 899,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\memoize-one\\dist\\memoize-one.esm.js",
+              "name": "C:/_forks/razzle/node_modules/memoize-one/dist/memoize-one.esm.js",
+              "index": 358,
+              "index2": 353,
+              "size": 965,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@emotion\\is-prop-valid\\dist\\is-prop-valid.esm.js",
+              "name": "C:/_forks/razzle/node_modules/@emotion/is-prop-valid/dist/is-prop-valid.esm.js",
+              "index": 354,
+              "index2": 350,
+              "size": 4309,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\merge-anything\\dist\\index.esm.js",
+              "name": "C:/_forks/razzle/node_modules/merge-anything/dist/index.esm.js",
+              "index": 356,
+              "index2": 352,
+              "size": 4781,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@emotion\\memoize\\dist\\memoize.esm.js",
+              "name": "C:/_forks/razzle/node_modules/@emotion/memoize/dist/memoize.esm.js",
+              "index": 355,
+              "index2": 349,
+              "size": 178,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@emotion\\is-prop-valid\\dist\\is-prop-valid.esm.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/@emotion/is-prop-valid/dist/is-prop-valid.esm.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@emotion\\is-prop-valid\\dist\\is-prop-valid.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/@emotion/is-prop-valid/dist/is-prop-valid.esm.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\is-what\\dist\\index.esm.js",
+              "name": "C:/_forks/razzle/node_modules/is-what/dist/index.esm.js",
+              "index": 357,
+              "index2": 351,
+              "size": 5854,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\merge-anything\\dist\\index.esm.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/merge-anything/dist/index.esm.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\styled-components\\dist\\styled-components.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/styled-components/dist/styled-components.esm.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\merge-anything\\dist\\index.esm.js",
+                  "name": "C:/_forks/razzle/node_modules/merge-anything/dist/index.esm.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "filteredModules": 0
+        },
+        {
+          "id": 40,
+          "identifier": "external \"http\"",
+          "name": "external \"http\"",
+          "index": 1,
+          "index2": 0,
+          "size": 42,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+          "issuerId": 156,
+          "issuerName": "./src/server/index.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 53,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react-router-dom\\esm\\react-router-dom.js",
+          "name": "C:/_forks/razzle/node_modules/react-router-dom/esm/react-router-dom.js",
+          "index": 385,
+          "index2": 388,
+          "size": 9997,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 90,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\chalk\\index.js",
+          "name": "C:/_forks/razzle/node_modules/chalk/index.js",
+          "index": 2,
+          "index2": 12,
+          "size": 6439,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+          "issuerId": 156,
+          "issuerName": "./src/server/index.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 133,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\koa\\lib\\application.js",
+          "name": "C:/_forks/razzle/node_modules/koa/lib/application.js",
+          "index": 19,
+          "index2": 93,
+          "size": 6603,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 134,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\koa-static\\index.js",
+          "name": "C:/_forks/razzle/node_modules/koa-static/index.js",
+          "index": 96,
+          "index2": 118,
+          "size": 1418,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 135,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\koa-helmet\\lib\\koa-helmet.js",
+          "name": "C:/_forks/razzle/node_modules/koa-helmet/lib/koa-helmet.js",
+          "index": 121,
+          "index2": 163,
+          "size": 762,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 136,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\koa-router\\lib\\router.js",
+          "name": "C:/_forks/razzle/node_modules/koa-router/lib/router.js",
+          "index": 166,
+          "index2": 176,
+          "size": 17653,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 137,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\koa-logger\\index.js",
+          "name": "C:/_forks/razzle/node_modules/koa-logger/index.js",
+          "index": 179,
+          "index2": 180,
+          "size": 3529,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 138,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\react-dom\\server.js",
+          "name": "C:/_forks/razzle/node_modules/react-dom/server.js",
+          "index": 183,
+          "index2": 183,
+          "size": 58,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+          "issuerId": null,
+          "issuerName": "./src/server/server.js",
+          "issuerPath": [
+            {
+              "id": 156,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "name": "./src/server/index.js"
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 156,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+          "name": "./src/server/index.js",
+          "index": 0,
+          "index2": 441,
+          "size": 1021,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 398,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js c1942e6efd0f91ed01c899a8d62eb0df",
+          "name": "./src/server/server.js + 14 modules",
+          "index": 14,
+          "index2": 440,
+          "size": 15129,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "name": "./src/server/server.js",
+              "index": 14,
+              "index2": 440,
+              "size": 3507,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+              "issuerId": 156,
+              "issuerName": "./src/server/index.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "name": "./src/client/apps/Website/App.js",
+              "index": 334,
+              "index2": 436,
+              "size": 1946,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "issuerId": null,
+              "issuerName": "./src/server/server.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\cookie\\names.js",
+              "name": "./src/client/utils/cookie/names.js",
+              "index": 439,
+              "index2": 437,
+              "size": 42,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+              "issuerId": null,
+              "issuerName": "./src/server/server.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\GlobalStyles.js",
+              "name": "./src/client/styles/GlobalStyles.js",
+              "index": 348,
+              "index2": 355,
+              "size": 724,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\theme.js",
+              "name": "./src/client/styles/theme.js",
+              "index": 359,
+              "index2": 377,
+              "size": 283,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+              "name": "./src/client/utils/routing/Routing.js",
+              "index": 381,
+              "index2": 390,
+              "size": 793,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\routes.js",
+              "name": "./src/client/apps/Website/routes.js",
+              "index": 394,
+              "index2": 429,
+              "size": 184,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\i18n\\Provider.js",
+              "name": "./src/client/utils/i18n/Provider.js",
+              "index": 433,
+              "index2": 431,
+              "size": 469,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Website/App.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "index": 435,
+              "index2": 435,
+              "size": 2450,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+              "issuerId": 425,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": 425,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\renderRoutes.js",
+              "name": "./src/client/utils/routing/renderRoutes.js",
+              "index": 384,
+              "index2": 389,
+              "size": 2111,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+              "issuerId": null,
+              "issuerName": "./src/client/utils/routing/Routing.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\utils\\routing\\Routing.js",
+                  "name": "./src/client/utils/routing/Routing.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\node_modules\\@material-ui\\styles\\esm\\ServerStyleSheets\\ServerStyleSheets.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/core/node_modules/@material-ui/styles/esm/ServerStyleSheets/ServerStyleSheets.js",
+              "index": 440,
+              "index2": 439,
+              "size": 1793,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\node_modules\\@material-ui\\styles\\esm\\ServerStyleSheets\\index.js",
+              "issuerId": 457,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/core/node_modules/@material-ui/styles/esm/ServerStyleSheets/index.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": 152,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\styles\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/core/esm/styles/index.js"
+                },
+                {
+                  "id": 67,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\node_modules\\@material-ui\\styles\\esm\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/core/node_modules/@material-ui/styles/esm/index.js"
+                },
+                {
+                  "id": 457,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\node_modules\\@material-ui\\styles\\esm\\ServerStyleSheets\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/core/node_modules/@material-ui/styles/esm/ServerStyleSheets/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\ThemeContext.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/ThemeContext.js",
+              "index": 437,
+              "index2": 432,
+              "size": 101,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": 425,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\nested.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/nested.js",
+              "index": 438,
+              "index2": 434,
+              "size": 133,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+              "issuerId": null,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": 425,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\orange.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/orange.js",
+              "index": 380,
+              "index2": 376,
+              "size": 294,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\index.js",
+              "issuerId": 419,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/index.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\styles\\theme.js",
+                  "name": "./src/client/styles/theme.js"
+                },
+                {
+                  "id": 419,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\core\\esm\\colors\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/core/esm/colors/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\useTheme.js",
+              "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/useTheme.js",
+              "index": 436,
+              "index2": 433,
+              "size": 149,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\index.js",
+              "issuerId": 426,
+              "issuerName": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/index.js",
+              "issuerPath": [
+                {
+                  "id": 156,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\index.js",
+                  "name": "./src/server/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\server\\server.js",
+                  "name": "./src/server/server.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4-0!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Website\\App.js",
+                  "name": "./src/client/apps/Website/App.js"
+                },
+                {
+                  "id": 425,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/index.js"
+                },
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\ThemeProvider\\ThemeProvider.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js"
+                },
+                {
+                  "id": 426,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\@material-ui\\styles\\esm\\useTheme\\index.js",
+                  "name": "C:/_forks/razzle/node_modules/@material-ui/styles/esm/useTheme/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "filteredModules": 0
+        }
+      ],
+      "filteredModules": 466,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": { "entries": [], "filteredEntries": 5, "debug": false }
+      },
+      "children": [],
+      "name": "server"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "hash": "6581c317b7abfdac257d",
+      "time": 3882,
+      "builtAt": 1578504076664,
+      "assetsByChunkName": {
+        "main": ["polyfill.a181b024f566542d39aa.js", "polyfill.a181b024f566542d39aa.js.map"]
+      },
+      "assets": [
+        {
+          "name": "polyfill.a181b024f566542d39aa.js",
+          "size": 134234,
+          "chunks": [0],
+          "chunkNames": ["main"],
+          "info": { "immutable": true },
+          "emitted": true
+        },
+        {
+          "name": "polyfill.a181b024f566542d39aa.js.map",
+          "size": 656839,
+          "chunks": [0],
+          "chunkNames": ["main"],
+          "info": { "development": true },
+          "emitted": true
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "main": {
+          "chunks": [0],
+          "assets": ["polyfill.a181b024f566542d39aa.js", "polyfill.a181b024f566542d39aa.js.map"],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "modules": [
+        {
+          "id": 63,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.array.iterator.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.array.iterator.js",
+          "index": 100,
+          "index2": 106,
+          "size": 2216,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 126,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.string.iterator.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.string.iterator.js",
+          "index": 243,
+          "index2": 242,
+          "size": 1052,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\web.url.js",
+          "issuerId": 327,
+          "issuerName": "C:/_forks/razzle/node_modules/core-js/modules/web.url.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            },
+            {
+              "id": 327,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\web.url.js",
+              "name": "C:/_forks/razzle/node_modules/core-js/modules/web.url.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 135,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\web.url-search-params.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/web.url-search-params.js",
+          "index": 329,
+          "index2": 328,
+          "size": 11868,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 136,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.js",
+          "index": 1,
+          "index2": 60,
+          "size": 12967,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 139,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.description.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.description.js",
+          "index": 62,
+          "index2": 61,
+          "size": 2129,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 140,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.async-iterator.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.async-iterator.js",
+          "index": 63,
+          "index2": 62,
+          "size": 223,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 141,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.has-instance.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.has-instance.js",
+          "index": 64,
+          "index2": 63,
+          "size": 217,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 142,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.is-concat-spreadable.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.is-concat-spreadable.js",
+          "index": 65,
+          "index2": 64,
+          "size": 238,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 143,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.iterator.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.iterator.js",
+          "index": 66,
+          "index2": 65,
+          "size": 208,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 144,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.match.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.match.js",
+          "index": 67,
+          "index2": 66,
+          "size": 199,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 145,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.replace.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.replace.js",
+          "index": 68,
+          "index2": 67,
+          "size": 205,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 146,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.search.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.search.js",
+          "index": 69,
+          "index2": 68,
+          "size": 202,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 147,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.species.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.species.js",
+          "index": 70,
+          "index2": 69,
+          "size": 205,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 148,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\core-js\\modules\\es.symbol.split.js",
+          "name": "C:/_forks/razzle/node_modules/core-js/modules/es.symbol.split.js",
+          "index": 71,
+          "index2": 70,
+          "size": 199,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/client/apps/Polyfill/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "id": 333,
+          "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js 74eb0b64ea63c790eef7bd71a3860f86",
+          "name": "./src/client/apps/Polyfill/index.js + 1 modules",
+          "index": 0,
+          "index2": 334,
+          "size": 22587,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [0],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "name": "./src/client/apps/Polyfill/index.js",
+              "index": 0,
+              "index2": 334,
+              "size": 8410,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "id": null,
+              "identifier": "C:\\_forks\\razzle\\node_modules\\whatwg-fetch\\fetch.js",
+              "name": "C:/_forks/razzle/node_modules/whatwg-fetch/fetch.js",
+              "index": 332,
+              "index2": 331,
+              "size": 13262,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+              "issuerId": null,
+              "issuerName": "./src/client/apps/Polyfill/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "C:\\_forks\\razzle\\node_modules\\babel-loader\\lib\\index.js??ref--4!C:\\_forks\\razzle\\examples\\with-iabbb-stack\\src\\client\\apps\\Polyfill\\index.js",
+                  "name": "./src/client/apps/Polyfill/index.js"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "filteredModules": 0
+        }
+      ],
+      "filteredModules": 319,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": { "entries": [], "filteredEntries": 2, "debug": false }
+      },
+      "children": [],
+      "name": "polyfill"
+    }
+  ]
+}

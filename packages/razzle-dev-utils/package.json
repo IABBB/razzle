@@ -17,11 +17,11 @@
   ],
   "dependencies": {
     "@babel/code-frame": "^7.5.5",
-    "chalk": "2.4.2",
+    "chalk": "3.0.0",
     "jest-message-util": "^24.9.0",
     "react-dev-utils": "^10.0.0",
     "rimraf": "3.0.0",
     "sockjs-client": "1.4.0",
-    "strip-ansi": "5.2.0"
+    "strip-ansi": "6.0.0"
   }
 }

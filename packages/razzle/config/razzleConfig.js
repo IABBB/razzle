@@ -94,7 +94,7 @@ const createConfigParams = (configName, dotenv) => ({
     const initConfig = createConfig(dotenv, appConfig);
     return configName === 'server'
       ? createServerConfig(dotenv, paths, initConfig)
-      : createClientConfig(configName === 'client', dotenv, paths, initConfig);
+      : createClientConfig(configName === 'client' && dotenv.raw.USE_DEV_SERVER, dotenv, paths, initConfig);
   },
   paths,
   env: dotenv.raw,
@@ -121,6 +121,11 @@ const buildConfigs = (configKeys = [], dotenv) => {
   }, []);
 };
 
+/**
+ * Build the given configs.
+ * @param {Array<string>} configKeys Configs to build
+ * @param {Object} dotenv Environment variables
+ */
 const run = (configKeys = [], dotenv) => {
   return buildConfigs(configKeys, dotenv).flat(); // flatten by 1 in case of multiple webpack configs per config generator
 };

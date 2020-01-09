@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const AssetsPlugin = require('assets-webpack-plugin');
+// const AssetsPlugin = require('assets-webpack-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 const WebpackBar = require('webpackbar');
 const modifyEntry = require('./webpack/modifyEntry');
@@ -11,20 +11,20 @@ const modifyEntry = require('./webpack/modifyEntry');
 // const resolve = require('./webpack/resolve');
 
 // Extrac the entry from the cfgBase to overwrite it
-module.exports = (useHmr, dotenv, paths, cfgBase) => {
-  const IS_HMR_ENABLED = useHmr;
+module.exports = (isLocalDev, dotenv, paths, cfgBase) => {
+  const IS_LOCAL_DEVELOPMENT = isLocalDev;
   const IS_DEV = dotenv.raw.NODE_ENV === 'development';
   const _config = {};
 
   _config.plugins = [
     // Output our JS and CSS files in a manifest file called assets.json
     // in the build directory.
-    new AssetsPlugin({
-      path: dotenv.raw.PUBLIC_DIR,
-      filename: `${cfgBase.name}.assets.json`,
-      prettyPrint: true,
-      entrypoints: true,
-    }),
+    // new AssetsPlugin({
+    //   path: dotenv.raw.PUBLIC_DIR,
+    //   filename: `${cfgBase.name}.assets.json`,
+    //   prettyPrint: true,
+    //   entrypoints: true,
+    // }),
     new LoadablePlugin({
       filename: `${cfgBase.name}.loadable.json`,
     }),
@@ -71,15 +71,24 @@ module.exports = (useHmr, dotenv, paths, cfgBase) => {
     ],
   };
 
+  _config.output = {
+    path: paths.appBuildPublicClient,
+    publicPath: dotenv.raw.CLIENT_PUBLIC_PATH,
+  };
+
   if (IS_DEV) {
     // Setup Webpack Dev Server on port 3001 and
     // specify our client entry point /client/index.js
     // config.entry = [require.resolve('@iabbb/razzle-dev-utils/webpackHotDevClient'), appSrcIndexJsPath];
 
-    if (IS_HMR_ENABLED) {
+    if (IS_LOCAL_DEVELOPMENT) {
       _config.plugins.push(
         new webpack.HotModuleReplacementPlugin({
           multiStep: true,
+        }),
+        new WebpackBar({
+          color: '#f56be2',
+          name: cfgBase.name,
         }),
       );
 
@@ -93,34 +102,23 @@ module.exports = (useHmr, dotenv, paths, cfgBase) => {
       cfgBase.entry = {};
     }
 
-    // Configure our client bundles output. Not the public path is to 3001.
+    // Configure our client bundles output. Note the public path is set to 3001.
     _config.output = {
-      path: paths.appBuildPublic,
-      publicPath: dotenv.raw.CLIENT_PUBLIC_PATH,
+      ..._config.output,
       // the number after the hash, ex [hash:8] or [chunkhash:8], indicates the length of the hash.  default is 20.
-      filename: `${cfgBase.name}.[name].js`,
+      filename: `js/${cfgBase.name}/[name].js`,
       pathinfo: true,
-      chunkFilename: `${cfgBase.name}.[name].js`,
+      chunkFilename: `js/${cfgBase.name}/[name].js`,
       devtoolModuleFilenameTemplate: (info) => path.resolve(info.resourcePath).replace(/\\/g, '/'),
     };
 
     // Add client-only development plugins
-    _config.plugins.push(
-      new webpack.DefinePlugin(dotenv.stringified),
-      new WebpackBar({
-        color: '#f56be2',
-        name: cfgBase.name,
-      }),
-    );
+    _config.plugins.push(new webpack.DefinePlugin(dotenv.stringified));
   } else {
-    // Specify the client output directory and paths. Notice that we have
-    // changed the publiPath to just '/' from http://localhost:3001. This is because
-    // we will only be using one port in production.
     _config.output = {
-      path: paths.appBuildPublic,
-      publicPath: dotenv.raw.PUBLIC_PATH,
-      filename: `static/js/${cfgBase.name}.[name].[chunkhash:8].js`,
-      chunkFilename: `static/js/${cfgBase.name}.[name].[chunkhash:8].chunk.js`,
+      ..._config.output,
+      filename: `js/${cfgBase.name}/[name].[chunkhash:8].js`,
+      chunkFilename: `js/${cfgBase.name}/[name].[chunkhash:8].chunk.js`,
     };
 
     _config.plugins.push(

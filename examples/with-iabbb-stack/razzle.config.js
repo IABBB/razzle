@@ -20,7 +20,7 @@ module.exports = {
     polyfill: ({ paths, env }) =>
       require('./webpack/polyfill.config.js')({
         mode: env.NODE_ENV,
-        outputPath: paths.appBuild,
+        outputPath: paths.appBuildPublicClient,
         outputPublicPath: env.CLIENT_PUBLIC_PATH,
       }),
     // headerfooter: ({ createWebpackConfig }) => {

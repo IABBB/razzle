@@ -8,6 +8,7 @@ const modifyEntry = require('./webpack/modifyEntry');
 // const paths = require('./paths');
 
 module.exports = (dotenv, paths, cfgBase) => {
+  const IS_LOCAL_DEVELOPMENT = dotenv.raw.IS_LOCAL_DEVELOPMENT;
   const IS_DEV = dotenv.raw.NODE_ENV === 'development';
   const _config = {};
 
@@ -34,7 +35,7 @@ module.exports = (dotenv, paths, cfgBase) => {
   // Specify webpack Node.js output path and filename
   _config.output = {
     path: paths.appBuild,
-    publicPath: dotenv.raw.CLIENT_PUBLIC_PATH,
+    publicPath: dotenv.raw.PUBLIC_PATH,
     filename: 'server.js',
     libraryTarget: 'commonjs2',
   };
@@ -49,19 +50,6 @@ module.exports = (dotenv, paths, cfgBase) => {
   ];
 
   if (IS_DEV) {
-    // Use watch mode
-    _config.watch = true;
-
-    _config.entry = modifyEntry(cfgBase.entry, (chunkEntry) => {
-      chunkEntry.unshift('webpack/hot/poll?300');
-      // Pretty format server errors
-      chunkEntry.unshift('@iabbb/razzle-dev-utils/prettyNodeErrors');
-    });
-
-    // Then clear out cfgBase.entry so it isn't merged. Bit of a hack.
-    // eslint-disable-next-line no-param-reassign
-    cfgBase.entry = {};
-
     const nodeArgs = ['-r', 'source-map-support/register'];
 
     // Passthrough --inspect and --inspect-brk flags (with optional [host:port] value) to node
@@ -70,22 +58,36 @@ module.exports = (dotenv, paths, cfgBase) => {
     } else if (process.env.INSPECT) {
       nodeArgs.push(process.env.INSPECT);
     }
+    if (IS_LOCAL_DEVELOPMENT) {
+      // Use watch mode
+      _config.watch = true;
 
-    _config.plugins.push(
-      // Add hot module replacement
-      new webpack.HotModuleReplacementPlugin(),
-      // Supress errors to console (we use our own logger)
-      new StartServerPlugin({
-        name: 'server.js',
-        nodeArgs,
-      }),
-      // Ignore *.assets.json to avoid infinite recompile bug
-      new webpack.WatchIgnorePlugin([/assets\.json|loadable\.json/g]),
-      new WebpackBar({
-        color: '#ffff00',
-        name: cfgBase.name,
-      }),
-    );
+      _config.entry = modifyEntry(cfgBase.entry, (chunkEntry) => {
+        chunkEntry.unshift('webpack/hot/poll?300');
+        // Pretty format server errors
+        chunkEntry.unshift('@iabbb/razzle-dev-utils/prettyNodeErrors');
+      });
+
+      // Then clear out cfgBase.entry so it isn't merged. Bit of a hack.
+      // eslint-disable-next-line no-param-reassign
+      cfgBase.entry = {};
+
+      _config.plugins.push(
+        // Add hot module replacement
+        new webpack.HotModuleReplacementPlugin(),
+        // Supress errors to console (we use our own logger)
+        new StartServerPlugin({
+          name: 'server.js',
+          nodeArgs,
+        }),
+        // Ignore *.assets.json to avoid infinite recompile bug
+        new webpack.WatchIgnorePlugin([/assets\.json|loadable\.json/g]),
+        new WebpackBar({
+          color: '#ffff00',
+          name: cfgBase.name,
+        }),
+      );
+    }
   }
 
   return merge(cfgBase, _config);

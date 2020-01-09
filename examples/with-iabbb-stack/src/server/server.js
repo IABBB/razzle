@@ -33,8 +33,6 @@ router.get(
 
     // console.log(`[SERVER] LOCALE ${locale}`);
 
-    // const assets = fs.readJsonSync(path.join(process.env.PUBLIC_DIR, `${appName}.assets.json`));
-
     // Create the server side style sheet
     const styledSheet = new ServerStyleSheet();
     const materialSheet = new ServerStyleSheets();

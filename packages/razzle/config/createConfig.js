@@ -1,4 +1,4 @@
-const merge = require('deepmerge');
+const merge = require('webpack-merge');
 const paths = require('./paths');
 
 const createConfig = (dotenv, { name, resolve, target, ...cfgBase }) => {
