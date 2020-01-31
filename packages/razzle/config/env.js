@@ -81,23 +81,13 @@ function getClientEnvironment() {
         PORT: process.env.PORT,
         VERBOSE: !!process.env.VERBOSE,
         HOST: process.env.HOST,
-        IS_LOCAL_DEVELOPMENT: !!(process.env.IS_LOCAL_DEVELOPMENT && process.env.IS_LOCAL_DEVELOPMENT === 'true'),
+        // Build directory absolute path. Build directory contains everything that is outputed from webpcak and includes the public folder
         BUILD_DIR: paths.appBuild,
-        // only for production builds. Useful if you need to serve from a CDN
-        // PUBLIC_PATH: process.env.PUBLIC_PATH || '/',
-        PUBLIC_PATH: process.env.PUBLIC_PATH || '/',
-        CLIENT_PUBLIC_PATH: process.env.CLIENT_PUBLIC_PATH || '/dist',
-        // DEV_SERVER_PORT: getDEV_SERVER_PORT(),
-        // CLIENT_PUBLIC_PATH is a PUBLIC_PATH for NODE_ENV === 'development' && BUILD_TARGET === 'client'
-        // It's useful if you're running razzle in a non-localhost container. Ends in a /
-        // During dev this is used by the webpack dev server
-        // CLIENT_PUBLIC_PATH:
-        //   process.env.CLIENT_PUBLIC_PATH ||
-        //   (process.env.NODE_ENV !== 'production' ? `http://${process.env.HOST}:${getDEV_SERVER_PORT()}/` : '/'),
-        // The public dir changes between dev and prod, so we use an environment
-        // variable available to users.
-        // PUBLIC_DIR: process.env.NODE_ENV !== 'production' ? paths.appBuildPublic : paths.appPublic,
         PUBLIC_DIR: paths.appBuildPublic,
+        ASSETS_PUBLIC_DIR: paths.appBuildPublicAssets,
+        // These are webpack variables
+        ASSETS_PUBLIC_PATH: process.env.ASSETS_PUBLIC_PATH || '/dist',
+        SERVER_PUBLIC_PATH: process.env.SERVER_PUBLIC_PATH || '/',
       },
     );
   // Stringify all values so we can feed into Webpack DefinePlugin

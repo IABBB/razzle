@@ -22,6 +22,9 @@ process.noDeprecation = true; // turns off that loadQuery clutter.
 process.env.INSPECT_BRK = process.argv.find((arg) => arg.match(/--inspect-brk(=|$)/)) || '';
 process.env.INSPECT = process.argv.find((arg) => arg.match(/--inspect(=|$)/)) || '';
 
+// Indicates whether the
+const IS_LOCAL = true;
+
 const createDevServerOptions = ({ host, port, contentBase }) => {
   // Configure webpack-dev-server to serve our client-side bundle from
   // http://${dotenv.raw.HOST}:3001
@@ -76,19 +79,26 @@ async function main() {
   // Get client env variables
   // const webDotEnv = getClientEnv('web');
 
+  const runOptions = { isLocal: IS_LOCAL };
+
   // Create the client configs
-  const clientConfigs = razzleConfig.run(['client'], dotenv);
+  const clientConfigs = razzleConfig.run(['client'], dotenv, runOptions);
 
   const optionalConfigs = razzleConfig.run(
     Object.keys(razzleConfig.get(['configs'])).filter((x) => process.argv.includes(`--${x}`)),
     dotenv,
+    runOptions,
   );
 
+  console.log('Client configs compiled');
   // Delete build folder
   await rimrafAsync(paths.appBuild);
+  console.log('Cleared app build directory');
 
   // Instantiate the webpack compiler with the config
   const clientMultiCompiler = compiler.create(clientConfigs);
+
+  console.log('Instantiated client compiler');
 
   if (optionalConfigs.length > 0) {
     const opMultiCompiler = compiler.create(optionalConfigs);
@@ -99,8 +109,10 @@ async function main() {
     });
   }
 
-  const serverConfig = razzleConfig.run(['server'], dotenv);
+  const serverConfig = razzleConfig.run(['server'], dotenv, runOptions);
   const serverCompiler = compiler.create(serverConfig);
+
+  console.log('Instantiated server compiler');
 
   // fs.writeJsonSync(
   //   path.resolve(__dirname, `all-webpack-configs-generated__${Date.now()}.json`),
@@ -114,7 +126,7 @@ async function main() {
   // Start our server webpack instance in watch mode after assets compile
   clientMultiCompiler.hooks.done.tap('Clients Assets Compiled', () => {
     if (watching) {
-      // console.log('watching server');
+      console.log('watching server');
       return;
     }
     // Otherwise, create a new watcher for our server code.
@@ -130,7 +142,7 @@ async function main() {
     );
   });
 
-  const publicPathUrl = new URL(dotenv.raw.PUBLIC_PATH);
+  const publicPathUrl = new URL(dotenv.raw.SERVER_PUBLIC_PATH);
 
   // Create a new instance of Webpack-dev-server for our client assets.
   // This will actually run on a different port than the users app.

@@ -46,7 +46,7 @@ module.exports = {
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
   appBuildPublic: resolveApp('build/public'),
-  appBuildPublicClient: resolveApp('build/public/dist'),
+  appBuildPublicAssets: resolveApp('build/public/dist'),
   // appManifest: resolveApp('build/assets.json'), // needs to support dynamic, multi-app
   appPublic: resolveApp('public'),
   appNodeModules: resolveApp('node_modules'),

@@ -10,9 +10,9 @@ const modifyEntry = require('./webpack/modifyEntry');
 // const paths = require('./paths');
 // const resolve = require('./webpack/resolve');
 
-// Extrac the entry from the cfgBase to overwrite it
-module.exports = (isLocalDev, dotenv, paths, cfgBase) => {
-  const IS_LOCAL_DEVELOPMENT = isLocalDev;
+// Extract the entry from the cfgBase to overwrite it
+module.exports = (dotenv, paths, cfgBase, { isLocal }) => {
+  const IS_LOCAL_DEVELOPMENT = !!isLocal;
   const IS_DEV = dotenv.raw.NODE_ENV === 'development';
   const _config = {};
 
@@ -72,8 +72,8 @@ module.exports = (isLocalDev, dotenv, paths, cfgBase) => {
   };
 
   _config.output = {
-    path: paths.appBuildPublicClient,
-    publicPath: dotenv.raw.CLIENT_PUBLIC_PATH,
+    path: paths.appBuildPublicAssets,
+    publicPath: dotenv.raw.ASSETS_PUBLIC_PATH,
   };
 
   if (IS_DEV) {

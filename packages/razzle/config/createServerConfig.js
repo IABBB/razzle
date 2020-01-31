@@ -7,8 +7,8 @@ const WebpackBar = require('webpackbar');
 const modifyEntry = require('./webpack/modifyEntry');
 // const paths = require('./paths');
 
-module.exports = (dotenv, paths, cfgBase) => {
-  const IS_LOCAL_DEVELOPMENT = dotenv.raw.IS_LOCAL_DEVELOPMENT;
+module.exports = (dotenv, paths, cfgBase, { isLocal }) => {
+  const IS_LOCAL_DEVELOPMENT = !!isLocal;
   const IS_DEV = dotenv.raw.NODE_ENV === 'development';
   const _config = {};
 
@@ -35,7 +35,7 @@ module.exports = (dotenv, paths, cfgBase) => {
   // Specify webpack Node.js output path and filename
   _config.output = {
     path: paths.appBuild,
-    publicPath: dotenv.raw.PUBLIC_PATH,
+    publicPath: dotenv.raw.SERVER_PUBLIC_PATH,
     filename: 'server.js',
     libraryTarget: 'commonjs2',
   };

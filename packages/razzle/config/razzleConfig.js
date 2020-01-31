@@ -89,21 +89,21 @@ const get = (arrPath) => {
   return getIn(_razzleCfg, p);
 };
 
-const createConfigParams = (configName, dotenv) => ({
+const createConfigParams = (configName, dotenv, options = {}) => ({
   createWebpackConfig: (appConfig) => {
     const initConfig = createConfig(dotenv, appConfig);
     return configName === 'server'
-      ? createServerConfig(dotenv, paths, initConfig)
-      : createClientConfig(configName === 'client' && dotenv.raw.USE_DEV_SERVER, dotenv, paths, initConfig);
+      ? createServerConfig(dotenv, paths, initConfig, options)
+      : createClientConfig(dotenv, paths, initConfig, options);
   },
   paths,
   env: dotenv.raw,
 });
 
-const runConfigFn = (configName, dotenv) => {
+const runConfigFn = (configName, dotenv, options = {}) => {
   const _createConfig = get(['configs', configName]);
   if (_createConfig) {
-    const params = createConfigParams(configName, dotenv);
+    const params = createConfigParams(configName, dotenv, options);
     const webpackConfig = _createConfig(params);
     // fs.writeJsonSync(
     //   path.resolve(__dirname, `webpack-generated__${configName}__${Date.now()}.json`),
@@ -114,9 +114,9 @@ const runConfigFn = (configName, dotenv) => {
   return [];
 };
 
-const buildConfigs = (configKeys = [], dotenv) => {
+const buildConfigs = (configKeys = [], dotenv, options = {}) => {
   return configKeys.reduce((acc, cur) => {
-    const config = runConfigFn(cur, dotenv);
+    const config = runConfigFn(cur, dotenv, options);
     return [...acc, ...config];
   }, []);
 };
@@ -126,8 +126,8 @@ const buildConfigs = (configKeys = [], dotenv) => {
  * @param {Array<string>} configKeys Configs to build
  * @param {Object} dotenv Environment variables
  */
-const run = (configKeys = [], dotenv) => {
-  return buildConfigs(configKeys, dotenv).flat(); // flatten by 1 in case of multiple webpack configs per config generator
+const run = (configKeys = [], dotenv, options = {}) => {
+  return buildConfigs(configKeys, dotenv, options).flat(); // flatten by 1 in case of multiple webpack configs per config generator
 };
 
 module.exports = {

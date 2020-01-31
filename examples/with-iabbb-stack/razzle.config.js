@@ -20,8 +20,8 @@ module.exports = {
     polyfill: ({ paths, env }) =>
       require('./webpack/polyfill.config.js')({
         mode: env.NODE_ENV,
-        outputPath: paths.appBuildPublicClient,
-        outputPublicPath: env.CLIENT_PUBLIC_PATH,
+        outputPath: paths.appBuildPublicAssets,
+        outputPublicPath: env.ASSETS_PUBLIC_PATH,
       }),
     // headerfooter: ({ createWebpackConfig }) => {
     //   const createConfig = require('./webpack/headerfooter.config.js');

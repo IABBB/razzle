@@ -28,7 +28,7 @@ router.get(
     const appName = `site_${locale}`;
 
     const extractor = new ChunkExtractor({
-      statsFile: path.resolve(process.env.PUBLIC_DIR, `${appName}.loadable.json`),
+      statsFile: path.resolve(process.env.ASSETS_PUBLIC_DIR, `${appName}.loadable.json`),
     });
 
     // console.log(`[SERVER] LOCALE ${locale}`);
